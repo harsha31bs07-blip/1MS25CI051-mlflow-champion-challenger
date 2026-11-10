@@ -44,7 +44,8 @@ python -m mlflow run . --env-manager local -P test_size=0.40 -P random_state=7
 Interpretation: MAE is in target units; MSE squares those units; R2 compares to a
 constant test-mean baseline and can be negative. Tiny delivery splits are unstable.
 Saving exact row membership and seed is more useful than recording counts alone.
-No quiz questions were included in the documents.
+The two Day 1/Day 2 quiz documents were subsequently supplied. All 30 responses
+and explanations are in Completed_Quiz_Answers.docx and quiz_answers.json.
 
 The named exercise entry points (firstmlflow_run.py, multiple_runs.py,
 autolog_demo.py, model_component.py, registry.py and client_demo.py) are also

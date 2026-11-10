@@ -49,5 +49,13 @@
   "summary_run_id": "2c0c50cf54d14a94a5dd03c9efd73ddb",
   "winner": "A",
   "delta_primary_metric": -0.17234387414587649,
-  "disagreements_count": 12
+  "disagreements_count": 12,
+  "student_identity": {
+    "name": "HARSHA BS",
+    "usn": "1MS25CI051",
+    "section": "A",
+    "course_title": "Pending student confirmation",
+    "course_code": "Pending student confirmation",
+    "added_after_evaluation_at": "2026-11-10T09:14:38.079508+00:00"
+  }
 }

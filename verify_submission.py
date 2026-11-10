@@ -6,7 +6,7 @@ import pandas as pd
 import torch
 from mlflow import MlflowClient
 from sklearn.metrics import f1_score
-from config import ROOT, OUTPUTS, TRACKING_URI, REGISTERED_MODEL
+from config import ROOT, OUTPUTS, TRACKING_URI, REGISTERED_MODEL, STUDENT
 from evaluate import choose_winner, validate_data
 
 
@@ -27,6 +27,7 @@ def main():
         run = client.get_run(entry['run_id'])
         assert run.info.status == 'FINISHED'
         assert all(t in run.data.tags for t in ['student_usn', 'library_versions', 'dataset_name'])
+        assert run.data.tags['student_usn'] == STUDENT['usn']
         reloaded = mlflow.pyfunc.load_model(entry['model_uri'])
         replay = reloaded.predict(evaluation[['text']])
         assert replay.prediction.tolist() == predictions.prediction.tolist()
@@ -42,7 +43,10 @@ def main():
     checks += ['Decision and both registry aliases verified', 'All fourteen lab transcripts present', 'Eight new-data predictions saved']
     lock = sorted(f'{d.metadata["Name"]}=={d.version}' for d in importlib.metadata.distributions())
     (ROOT / 'requirements-lock.txt').write_text('\n'.join(lock)+'\n')
-    report = {'checks': checks, 'remaining_student_actions': ['Supply student name, USN, course and section', 'Run with actual STUDENT_USN to replace NOT_PROVIDED tag', 'Publish GitHub repository and submit link to LMS', 'Review implementation for viva; quiz questions were not supplied']}
+    quizzes = json.loads((ROOT / 'quiz_answers.json').read_text())
+    assert len(quizzes['day_1']) == len(quizzes['day_2']) == 15
+    checks += ['Student identity verified in live MLflow tags', 'Both supplied quizzes have 15 completed responses with explanations']
+    report = {'checks': checks, 'remaining_student_actions': ['Confirm course title and course code', 'Provide LMS assignment URL for submission', 'Provide instructor GitHub username for private-repository access or choose public visibility', 'Capture the native PyCharm terminal window: the desktop screenshot helper is unavailable', 'Review implementation and quiz explanations for viva']}
     (OUTPUTS / 'verification.json').write_text(json.dumps(report, indent=2))
     client.log_artifact(result['summary_run_id'], str(OUTPUTS / 'verification.json'))
     client.log_artifact(result['summary_run_id'], str(ROOT / 'requirements-lock.txt'))

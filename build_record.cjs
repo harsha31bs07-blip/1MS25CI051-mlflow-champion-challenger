@@ -1,9 +1,11 @@
-// Build a readable Word lab record from measured evidence, leaving identity blank.
+// Build a readable Word lab record from measured evidence and supplied identity.
 const fs = require('fs');
 const path = require('path');
 const { Document, Packer, Paragraph, TextRun, HeadingLevel, PageBreak, ImageRun,
         Footer, PageNumber, AlignmentType } = require('./.artifact-tools/node_modules/docx');
 const root = __dirname;
+const student = JSON.parse(fs.readFileSync(path.join(root, 'student.json'), 'utf8'));
+const quizzes = JSON.parse(fs.readFileSync(path.join(root, 'quiz_answers.json'), 'utf8'));
 const text = p => fs.readFileSync(path.join(root,p), 'utf8').replace(/\r\n/g,'\n');
 const children = [];
 function para(value, options={}) { children.push(new Paragraph({children:[new TextRun(value)], spacing:{after:120}, ...options})); }
@@ -13,10 +15,11 @@ function page() { children.push(new Paragraph({children:[new PageBreak()]})); }
 para('MLflow Skill Lab Completed Record',{heading:HeadingLevel.TITLE});
 para('Labs 01 through 14 and Champion Challenger Mini Project',{heading:HeadingLevel.SUBTITLE});
 para('Prepared from actual local executions on 10 November 2026');
-para('Student name and USN: to be supplied by the student');
-para('Course, course code and section: to be supplied by the student');
+para(`Student name: ${student.name}    USN: ${student.usn}`);
+para(`Section: ${student.section}    Course: ${student.course_title}    Code: ${student.course_code}`);
+para('Repository: https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger');
 para('This record accompanies executable source, labeled data, tracked models and saved outputs. DistilBERT remains the Champion on the fixed sixty sentence evaluation set. All fourteen labs have separate terminal transcripts and the project reloads its Champion by registry alias.');
-para('The original documents supplied no starter scripts. Equivalent solutions were implemented with the exact delivery and hospital datasets from the brief; the general baseline uses a declared synthetic dataset. The duplicated Projects heading is treated as Lab 12. Quiz questions were absent.');
+para('The original documents supplied no starter scripts. Equivalent solutions were implemented with the exact delivery and hospital datasets from the brief; the general baseline uses a declared synthetic dataset. The duplicated Projects heading is treated as Lab 12. The two subsequently supplied quizzes are answered with explanations in this record and in a separate response sheet.');
 para('AI declaration: OpenAI Codex assisted with requirements, data authoring, implementation, execution and explanations. The student must review the code and be able to explain it in the viva. Instructor marks and signatures are intentionally unfilled.');
 heading('Navigation');
 para('Project: README.md, evaluate.py, hf_model.py, register_champion.py and predict_from_mlflow.py. Labs: run_labs.py and labs/README.md. Complete outputs: outputs/ and outputs/labs/lab_NN/.');
@@ -66,11 +69,26 @@ for(let i=1;i<=14;i++) {
  code(raw.slice(0,28).map(x=>x.length>100?x.slice(0,97)+'...':x).join('\n'));
  if(raw.length>28) para(`Full output (${raw.length} lines): ${rel}. Excerpt shortened only for page readability.`);
 }
+for (const day of [1,2]) {
+ page(); heading(`Day ${day} Quiz Answers`);
+ para(quizzes.declaration);
+ for (const [number, answer, explanation] of quizzes[`day_${day}`]) para(`${number}. ${answer} — ${explanation}`);
+}
 page();heading('Reproduction and Submission');
 para('Follow README.md to install dependencies, start the tracking server, evaluate both models, register aliases, predict new examples and execute the labs. requirements-lock.txt records the executed package versions. Git history records the pre-run rule and subsequent implementation/evidence commits.');
-para('Supply the student identity fields and STUDENT_USN before the final student-tagged run. Review all source and results for viva preparation. Publish the repository using the required USN name, add the instructor if private, and submit the link to the LMS using the student account. No external submission has been performed.');
+para('Student identity is recorded in student.json. Course title and course code await student confirmation. Review all source and results for viva preparation. The GitHub repository uses the required USN name. If private, add the instructor before submitting its link to the LMS. Check submission_status.json for the current submission state.');
 const doc = new Document({creator:'MLflow Skill Lab',title:'MLflow Skill Lab Completed Record',
  styles:{default:{document:{run:{font:'Calibri',size:22},paragraph:{spacing:{after:120}}}}},
  sections:[{properties:{page:{margin:{top:850,bottom:850,left:850,right:850}}},
  footers:{default:new Footer({children:[new Paragraph({alignment:AlignmentType.RIGHT,children:[new TextRun('MLflow Skill Lab | '),new TextRun({children:[PageNumber.CURRENT]})]})]})},children}]});
 Packer.toBuffer(doc).then(b=>fs.writeFileSync(path.join(root,'Completed_Lab_Record.docx'),b));
+const quizChildren = [];
+for (const day of [1,2]) {
+ if(day === 2) quizChildren.push(new Paragraph({children:[new PageBreak()]}));
+ quizChildren.push(new Paragraph({text:`MLOps with MLflow Day ${day} Quiz Answers`,heading:HeadingLevel.TITLE}));
+ quizChildren.push(new Paragraph(`${student.name} | ${student.usn} | Section ${student.section}`));
+ quizChildren.push(new Paragraph({text:quizzes.declaration,spacing:{after:200}}));
+ for(const [number,answer,explanation] of quizzes[`day_${day}`]) quizChildren.push(new Paragraph({text:`${number}. ${answer} — ${explanation}`,spacing:{after:140}}));
+}
+const quizDoc = new Document({creator:student.name,title:'Completed MLOps Quiz Answers',styles:{default:{document:{run:{font:'Calibri',size:22}}}},sections:[{properties:{page:{margin:{top:850,bottom:850,left:850,right:850}}},children:quizChildren}]});
+Packer.toBuffer(quizDoc).then(b=>fs.writeFileSync(path.join(root,'Completed_Quiz_Answers.docx'),b));

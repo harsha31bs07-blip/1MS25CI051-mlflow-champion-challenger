@@ -17,3 +17,10 @@ for start in range(0, len(doc), 8):
         ImageDraw.Draw(sheet).text((x+8,y+5), f'Page {start+offset+1}', fill='black')
         assert page.get_text().strip(), f'Blank page {start+offset+1}'
     sheet.save(OUTPUTS / f'document-preview/contact_{start//8+1}.png')
+
+quiz = pymupdf.open(OUTPUTS / 'document-preview/Completed_Quiz_Answers.pdf')
+print('Quiz pages:', len(quiz))
+all_text = '\n'.join(page.get_text() for page in quiz)
+assert '1MS25CI051' in all_text and 'Day 1' in all_text and 'Day 2' in all_text
+for number, page in enumerate(quiz, 1):
+    page.get_pixmap(matrix=pymupdf.Matrix(1,1)).save(OUTPUTS / f'document-preview/quiz_{number}.png')

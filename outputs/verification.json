@@ -4,12 +4,15 @@
     "B: saved inputs, recomputed F1, logged metadata and full model replay passed",
     "Decision and both registry aliases verified",
     "All fourteen lab transcripts present",
-    "Eight new-data predictions saved"
+    "Eight new-data predictions saved",
+    "Student identity verified in live MLflow tags",
+    "Both supplied quizzes have 15 completed responses with explanations"
   ],
   "remaining_student_actions": [
-    "Supply student name, USN, course and section",
-    "Run with actual STUDENT_USN to replace NOT_PROVIDED tag",
-    "Publish GitHub repository and submit link to LMS",
-    "Review implementation for viva; quiz questions were not supplied"
+    "Confirm course title and course code",
+    "Provide LMS assignment URL for submission",
+    "Provide instructor GitHub username for private-repository access or choose public visibility",
+    "Capture the native PyCharm terminal window: the desktop screenshot helper is unavailable",
+    "Review implementation and quiz explanations for viva"
   ]
 }

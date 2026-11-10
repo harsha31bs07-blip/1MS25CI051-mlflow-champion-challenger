@@ -15,7 +15,7 @@ import pandas as pd
 import torch
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, ConfusionMatrixDisplay
 from transformers import pipeline, set_seed
-from config import ROOT, OUTPUTS, TRACKING_URI, EXPERIMENT, SEED, MODEL_A, MODEL_B, RULE
+from config import ROOT, OUTPUTS, TRACKING_URI, EXPERIMENT, SEED, MODEL_A, MODEL_B, RULE, STUDENT
 from hf_model import SentimentModel
 
 
@@ -81,7 +81,7 @@ def main():
                 mlflow.log_params({'hf_model_id': model_id, 'hf_revision': revision or 'unknown', 'task': 'sentiment',
                                   'role': 'champion candidate' if role == 'A' else 'challenger candidate',
                                   'max_length': 128, 'batch_size': 8, 'eval_samples': len(data), 'seed': SEED, 'device': 'cpu', 'torch_threads': 4})
-                mlflow.set_tags({'student_usn': os.getenv('STUDENT_USN', 'NOT_PROVIDED'), 'library_versions': json.dumps(versions), 'dataset_name': 'original-balanced-sentiment-60'})
+                mlflow.set_tags({'student_usn': os.getenv('STUDENT_USN', STUDENT['usn']), 'student_name': STUDENT['name'], 'student_section': STUDENT['section'], 'library_versions': json.dumps(versions), 'dataset_name': 'original-balanced-sentiment-60'})
                 mlflow.log_metrics(metrics)
                 info = mlflow.pyfunc.log_model(name='model', python_model=SentimentModel(), artifacts={'hf': str(local)},
                     code_paths=[str(ROOT / 'hf_model.py')], input_example=data[['text']].head(2),

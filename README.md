@@ -1,8 +1,9 @@
 # MLflow Skill Lab: all 14 labs and Champion–Challenger project
 
-Student name: TO BE FILLED BY STUDENT  
-USN: set the STUDENT_USN environment variable before your submission run.  
-Course/section: TO BE FILLED BY STUDENT.
+Student name: HARSHA BS  
+USN: 1MS25CI051  
+Section: A  
+Course title/code: pending student confirmation.
 
 ## Task and models
 
@@ -28,7 +29,7 @@ README and the input data is logged with every comparison.
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-$env:STUDENT_USN = 'YOUR_USN'
+$env:STUDENT_USN = '1MS25CI051'
 .\.venv\Scripts\python.exe -m mlflow server --host 127.0.0.1 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlartifacts
 ```
 
@@ -78,9 +79,15 @@ models may miss sarcasm, context or domain-specific language. No test data is us
 for training or threshold selection. AI assistance (OpenAI Codex) was used to read
 requirements, author data, implement code, debug and write explanations. The student
 must review and understand every line, supply identity, and explain the choices in
-the viva. Quiz questions were not supplied; no answers or marks are invented.
+the viva. The two subsequently supplied quiz documents are answered in
+`Completed_Quiz_Answers.docx` and `quiz_answers.json`, with explanations checked
+against their supplied keys. No instructor marks are claimed.
 
 ## Submission
+
+Repository: [1MS25CI051-mlflow-champion-challenger](https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger) (private).
+Instructor access and LMS submission await the student's destination details.
+Current state is recorded in `submission_status.json`.
 
 Use repository name `<USN>-mlflow-champion-challenger`. Commit source/data/outputs
 but exclude `.venv`, model weights, tracking databases, `mlruns` and `mlartifacts`.

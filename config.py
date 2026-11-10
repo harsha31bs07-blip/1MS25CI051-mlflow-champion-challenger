@@ -1,6 +1,7 @@
 """Shared configuration. Set STUDENT_USN and MLFLOW_TRACKING_URI as needed."""
 import os
 import sys
+import json
 from pathlib import Path
 
 # MLflow emits Unicode run links; Windows redirected consoles may default to cp1252.
@@ -9,6 +10,7 @@ if hasattr(sys.stdout, 'reconfigure'):
 os.environ.setdefault('PYTHONIOENCODING', 'utf-8')
 
 ROOT = Path(__file__).resolve().parent
+STUDENT = json.loads((ROOT / 'student.json').read_text(encoding='utf-8'))
 OUTPUTS = ROOT / 'outputs'
 TRACKING_URI = os.getenv('MLFLOW_TRACKING_URI', 'http://127.0.0.1:5000')
 EXPERIMENT = 'hf-sentiment-champion-challenger'
