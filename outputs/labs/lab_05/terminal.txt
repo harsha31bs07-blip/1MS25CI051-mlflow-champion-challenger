@@ -1,0 +1,137 @@
+🏃 View run seed-7_test-0.2 at: http://127.0.0.1:5000/#/experiments/4/runs/88d46cf98d7141b796cdd3b1d060a46d
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "88d46cf98d7141b796cdd3b1d060a46d",
+  "model_uri": null,
+  "mae": 3.4887303272114267,
+  "mse": 16.67910877901307,
+  "r2": 0.9818221410121708,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 7,
+  "fit_intercept": true
+}
+🏃 View run seed-7_test-0.3 at: http://127.0.0.1:5000/#/experiments/4/runs/5ba54370122a4c89ae3229c595ffe77b
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "5ba54370122a4c89ae3229c595ffe77b",
+  "model_uri": null,
+  "mae": 3.282592747325984,
+  "mse": 14.091399109840568,
+  "r2": 0.9853834643323455,
+  "train_samples": 35,
+  "test_samples": 15,
+  "test_size": 0.3,
+  "random_state": 7,
+  "fit_intercept": true
+}
+🏃 View run seed-7_test-0.4 at: http://127.0.0.1:5000/#/experiments/4/runs/cf534a2169444e38a64a0bdab28e49d1
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "cf534a2169444e38a64a0bdab28e49d1",
+  "model_uri": null,
+  "mae": 3.2097054030288503,
+  "mse": 13.408414989061717,
+  "r2": 0.9878516525645399,
+  "train_samples": 30,
+  "test_samples": 20,
+  "test_size": 0.4,
+  "random_state": 7,
+  "fit_intercept": true
+}
+🏃 View run seed-21_test-0.2 at: http://127.0.0.1:5000/#/experiments/4/runs/e787a6766e9a447c97f678e8f48dae8b
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "e787a6766e9a447c97f678e8f48dae8b",
+  "model_uri": null,
+  "mae": 1.789256444363183,
+  "mse": 4.538844090546646,
+  "r2": 0.996776134512109,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 21,
+  "fit_intercept": true
+}
+🏃 View run seed-21_test-0.3 at: http://127.0.0.1:5000/#/experiments/4/runs/806f3772b1644015b2fc6ae9f2c95f37
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "806f3772b1644015b2fc6ae9f2c95f37",
+  "model_uri": null,
+  "mae": 2.350492283408683,
+  "mse": 10.130341549203344,
+  "r2": 0.990418396165136,
+  "train_samples": 35,
+  "test_samples": 15,
+  "test_size": 0.3,
+  "random_state": 21,
+  "fit_intercept": true
+}
+🏃 View run seed-21_test-0.4 at: http://127.0.0.1:5000/#/experiments/4/runs/24ebaa5d5a774898bab04d0acf7ab571
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "24ebaa5d5a774898bab04d0acf7ab571",
+  "model_uri": null,
+  "mae": 2.603068862106416,
+  "mse": 10.971046267271939,
+  "r2": 0.9909627588671276,
+  "train_samples": 30,
+  "test_samples": 20,
+  "test_size": 0.4,
+  "random_state": 21,
+  "fit_intercept": true
+}
+🏃 View run seed-42_test-0.2 at: http://127.0.0.1:5000/#/experiments/4/runs/ddd82848d6c346ffa92ac752fbddb743
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "ddd82848d6c346ffa92ac752fbddb743",
+  "model_uri": null,
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+🏃 View run seed-42_test-0.3 at: http://127.0.0.1:5000/#/experiments/4/runs/935570f129ee40e2a9ca98ac8271e363
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "935570f129ee40e2a9ca98ac8271e363",
+  "model_uri": null,
+  "mae": 2.8432501796243153,
+  "mse": 14.029429303069774,
+  "r2": 0.9892193176973795,
+  "train_samples": 35,
+  "test_samples": 15,
+  "test_size": 0.3,
+  "random_state": 42,
+  "fit_intercept": true
+}
+🏃 View run seed-42_test-0.4 at: http://127.0.0.1:5000/#/experiments/4/runs/5eab0c322f4a4be8865c11293a3678a4
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/4
+{
+  "run_id": "5eab0c322f4a4be8865c11293a3678a4",
+  "model_uri": null,
+  "mae": 2.6166791452148996,
+  "mse": 11.959046037886777,
+  "r2": 0.9921753688735709,
+  "train_samples": 30,
+  "test_samples": 20,
+  "test_size": 0.4,
+  "random_state": 42,
+  "fit_intercept": true
+}
+                          run_id model_uri      mae       mse       r2  train_samples  test_samples  test_size  random_state  fit_intercept
+88d46cf98d7141b796cdd3b1d060a46d      None 3.488730 16.679109 0.981822             40            10        0.2             7           True
+5ba54370122a4c89ae3229c595ffe77b      None 3.282593 14.091399 0.985383             35            15        0.3             7           True
+cf534a2169444e38a64a0bdab28e49d1      None 3.209705 13.408415 0.987852             30            20        0.4             7           True
+e787a6766e9a447c97f678e8f48dae8b      None 1.789256  4.538844 0.996776             40            10        0.2            21           True
+806f3772b1644015b2fc6ae9f2c95f37      None 2.350492 10.130342 0.990418             35            15        0.3            21           True
+24ebaa5d5a774898bab04d0acf7ab571      None 2.603069 10.971046 0.990963             30            20        0.4            21           True
+ddd82848d6c346ffa92ac752fbddb743      None 2.688387 12.429919 0.984929             40            10        0.2            42           True
+935570f129ee40e2a9ca98ac8271e363      None 2.843250 14.029429 0.989219             35            15        0.3            42           True
+5eab0c322f4a4be8865c11293a3678a4      None 2.616679 11.959046 0.992175             30            20        0.4            42           True
+Compare test_size within the same seed first. More training rows do not guarantee lower error: the held-out examples also change. R2 and MAE fluctuate with split difficulty; do not claim a causal trend from three splits.

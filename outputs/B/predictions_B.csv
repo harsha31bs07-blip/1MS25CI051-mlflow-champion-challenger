@@ -1,0 +1,61 @@
+id,text,reference,prediction,confidence,correct
+1,The film was delightful and the acting was superb.,POSITIVE,POSITIVE,0.9961994290351868,True
+2,I hated every boring minute of this film.,NEGATIVE,NEGATIVE,0.9827430248260498,True
+3,The service was quick and the staff were kind.,POSITIVE,NEGATIVE,0.9710123538970947,False
+4,My order arrived broken and customer support ignored me.,NEGATIVE,NEGATIVE,0.9681724309921265,True
+5,A wonderful story with a moving ending.,POSITIVE,POSITIVE,0.9965929388999939,True
+6,This was a complete waste of money.,NEGATIVE,NEGATIVE,0.9910537600517273,True
+7,The food was fresh and absolutely delicious.,POSITIVE,POSITIVE,0.9964950680732727,True
+8,The meal was cold and tasted awful.,NEGATIVE,NEGATIVE,0.9872791767120361,True
+9,I would happily recommend this book to friends.,POSITIVE,POSITIVE,0.9532181024551392,True
+10,The plot was predictable and the dialogue was terrible.,NEGATIVE,NEGATIVE,0.993884265422821,True
+11,It exceeded my expectations in every way.,POSITIVE,POSITIVE,0.8452929854393005,True
+12,The product stopped working after one day.,NEGATIVE,NEGATIVE,0.9353724122047424,True
+13,The concert was energetic and unforgettable.,POSITIVE,POSITIVE,0.9958066940307617,True
+14,An irritating performance with nothing to enjoy.,NEGATIVE,NEGATIVE,0.9881265163421631,True
+15,The hotel room was spotless and comfortable.,POSITIVE,NEGATIVE,0.9287749528884888,False
+16,Our room was filthy and unbearably noisy.,NEGATIVE,NEGATIVE,0.9913938641548157,True
+17,I am pleased with the quality of this purchase.,POSITIVE,POSITIVE,0.9947955012321472,True
+18,I regret buying this unreliable device.,NEGATIVE,NEGATIVE,0.9689498543739319,True
+19,The new update makes everything much easier.,POSITIVE,NEGATIVE,0.6067826151847839,False
+20,The update ruined the app and erased my work.,NEGATIVE,NEGATIVE,0.9820398688316345,True
+21,I expected a disaster but it was surprisingly enjoyable.,POSITIVE,POSITIVE,0.9214447140693665,True
+22,Despite the beautiful scenery the movie was painfully dull.,NEGATIVE,NEGATIVE,0.9583519697189331,True
+23,It is not perfect but I really enjoyed it.,POSITIVE,POSITIVE,0.8742005228996277,True
+24,The cast tried hard but the script let everyone down.,NEGATIVE,NEGATIVE,0.9071056246757507,True
+25,There is nothing disappointing about this lovely album.,POSITIVE,NEGATIVE,0.8877861499786377,False
+26,I wanted to like it but could not stay interested.,NEGATIVE,NEGATIVE,0.7716994881629944,True
+27,The slow opening leads to a deeply satisfying conclusion.,POSITIVE,NEGATIVE,0.9315035939216614,False
+28,Great packaging cannot rescue this terrible product.,NEGATIVE,POSITIVE,0.7965258955955505,False
+29,An understated gem that deserves more attention.,POSITIVE,POSITIVE,0.9853578805923462,True
+30,It looks impressive yet feels empty and lifeless.,NEGATIVE,NEGATIVE,0.7668238282203674,True
+31,This is far better than I had feared.,POSITIVE,NEGATIVE,0.8318525552749634,False
+32,Not even the talented director could save this mess.,NEGATIVE,NEGATIVE,0.9743948578834534,True
+33,The jokes are silly but they made me laugh.,POSITIVE,NEGATIVE,0.9691579937934875,False
+34,What a brilliant way to waste two hours of my life.,NEGATIVE,NEGATIVE,0.9303986430168152,True
+35,I did not expect to love this as much as I did.,POSITIVE,NEGATIVE,0.6917587518692017,False
+36,I cannot recommend a restaurant with such rude staff.,NEGATIVE,NEGATIVE,0.7126728892326355,True
+37,The ending alone makes the whole journey worthwhile.,POSITIVE,POSITIVE,0.9866439700126648,True
+38,The ending undoes everything good about the story.,NEGATIVE,NEGATIVE,0.6146411895751953,True
+39,A charming little film with a lot of heart.,POSITIVE,POSITIVE,0.9966549873352051,True
+40,A noisy spectacle without a single interesting character.,NEGATIVE,NEGATIVE,0.6857042908668518,True
+41,The instructions were clear and setup was effortless.,POSITIVE,NEGATIVE,0.9727276563644409,False
+42,Confusing instructions made installation a nightmare.,NEGATIVE,NEGATIVE,0.9883728623390198,True
+43,The battery easily lasted through my entire trip.,POSITIVE,POSITIVE,0.7542290091514587,True
+44,The battery died before I even left home.,NEGATIVE,NEGATIVE,0.9436283707618713,True
+45,I appreciated the thoughtful design and careful details.,POSITIVE,POSITIVE,0.9962594509124756,True
+46,The design is awkward and the buttons keep getting stuck.,NEGATIVE,NEGATIVE,0.8983749151229858,True
+47,This course explained difficult ideas beautifully.,POSITIVE,POSITIVE,0.9933233857154846,True
+48,The course was disorganized and full of errors.,NEGATIVE,NEGATIVE,0.9902494549751282,True
+49,A warm welcome made us feel instantly at home.,POSITIVE,POSITIVE,0.9901853799819946,True
+50,We were treated with contempt from the moment we arrived.,NEGATIVE,NEGATIVE,0.9631108641624451,True
+51,The sequel captures all the magic of the original.,POSITIVE,POSITIVE,0.9954789876937866,True
+52,The sequel is a lazy imitation of the original.,NEGATIVE,NEGATIVE,0.9778717160224915,True
+53,I was skeptical at first but became completely absorbed.,POSITIVE,NEGATIVE,0.9189649820327759,False
+54,It starts well and then collapses into nonsense.,NEGATIVE,NEGATIVE,0.98997962474823,True
+55,Even its flaws could not spoil my enjoyment.,POSITIVE,NEGATIVE,0.7153972387313843,False
+56,Even its best moments felt tedious.,NEGATIVE,NEGATIVE,0.9629011750221252,True
+57,It is a modest film that delivers genuine pleasure.,POSITIVE,POSITIVE,0.9955001473426819,True
+58,An ambitious film that fails at almost everything.,NEGATIVE,NEGATIVE,0.9652382731437683,True
+59,The performance is subtle and genuinely affecting.,POSITIVE,POSITIVE,0.9935489296913147,True
+60,The performance is stiff and utterly unconvincing.,NEGATIVE,NEGATIVE,0.9846409559249878,True

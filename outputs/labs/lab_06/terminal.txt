@@ -1,0 +1,50 @@
+🏃 View run autolog-linear-regression at: http://127.0.0.1:5000/#/experiments/5/runs/c737cce46bd04d0ba6f273130933fc6e
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/5
+🏃 View run manual-linear-regression at: http://127.0.0.1:5000/#/experiments/5/runs/5ac7d28aa1bc47b282788f5d77015761
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/5
+{
+  "run_id": "5ac7d28aa1bc47b282788f5d77015761",
+  "model_uri": "models:/m-25581391d9b64cfdaf8d42b5cd29d682",
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+{
+  "autolog": {
+    "params": {
+      "copy_X": "True",
+      "fit_intercept": "True",
+      "n_jobs": "None",
+      "positive": "False",
+      "tol": "1e-06"
+    },
+    "metrics": {
+      "training_mean_squared_error": 8.183214896590247,
+      "training_mean_absolute_error": 2.3768750185456993,
+      "training_r2_score": 0.9942586618543975,
+      "training_root_mean_squared_error": 2.860631905119959,
+      "training_score": 0.9942586618543975,
+      "LinearRegression_score_unknown_dataset-2": 0.9849293558822475
+    }
+  },
+  "manual": {
+    "params": {
+      "test_size": "0.2",
+      "random_state": "42",
+      "fit_intercept": "True",
+      "dataset": "baseline",
+      "train_samples": "40",
+      "test_samples": "10"
+    },
+    "metrics": {
+      "mae": 2.6883872936670796,
+      "mse": 12.429919015934288,
+      "r2": 0.9849293558822475
+    }
+  }
+}

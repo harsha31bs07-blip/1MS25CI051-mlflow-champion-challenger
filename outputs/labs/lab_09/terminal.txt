@@ -1,0 +1,4 @@
+Custom Hugging Face pyfunc URI: models:/m-f30c7485f3a748ada72100650bac23bd
+                   text prediction  confidence
+  A wonderful surprise.   POSITIVE    0.999877
+A miserable experience.   NEGATIVE    0.999810

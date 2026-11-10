@@ -1,0 +1,8 @@
+ dataset  test_size  train_samples  test_samples      mae       mse       r2
+baseline        0.2             40            10 2.688387 12.429919 0.984929
+baseline        0.3             35            15 2.843250 14.029429 0.989219
+baseline        0.4             30            20 2.616679 11.959046 0.992175
+delivery        0.2              4             1 2.000000  4.000000      NaN
+delivery        0.3              3             2 1.250000  2.125000 0.962222
+delivery        0.4              3             2 1.250000  2.125000 0.962222
+Use execution, dataset, test_size, seed, row id and split columns to preserve changing splits in one CSV. CSV has no sheets; XLSX supplies separate worksheets. R2 is undefined with one test row.

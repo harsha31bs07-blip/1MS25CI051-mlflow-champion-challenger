@@ -1,0 +1,7 @@
+id,comment
+3,B mistakes an explicitly positive service description for negative sentiment; A matches the reference.
+25,The negation nothing disappointing expresses approval; A handles the negation and B does not.
+27,The satisfying conclusion dominates the slow opening in the intended label; B focuses too strongly on negative wording.
+28,Positive packaging is overridden by cannot rescue and terrible product; B incorrectly predicts positive.
+43,B correctly recognizes successful battery life while A predicts negative; A is not universally better.
+55,Could not spoil my enjoyment negates the negative cue flaws; A matches the intended positive judgment.

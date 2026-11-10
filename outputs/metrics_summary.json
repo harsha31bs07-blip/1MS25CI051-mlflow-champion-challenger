@@ -1,0 +1,53 @@
+{
+  "rule": {
+    "primary_metric": "macro_f1",
+    "margin": 0.01,
+    "max_latency_ratio": 5.0
+  },
+  "readme_sha256_before_run": "c4570b9c228463ca9bd6135b7210071ef63c25e98c66d8dd63dc28f354e49b59",
+  "eval_sha256": "5bec20a0f74534467a6b0f0c7983f7bc62c20445e9f03d6be8ad59f5f3c5b5de",
+  "library_versions": {
+    "transformers": "4.57.6",
+    "torch": "2.15.0",
+    "mlflow": "3.18.0",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1"
+  },
+  "tracking_uri": "http://127.0.0.1:5000",
+  "models": {
+    "A": {
+      "run_id": "fd0e7316000d4339b8a14e9829852ade",
+      "model_uri": "models:/m-f30c7485f3a748ada72100650bac23bd",
+      "hf_model_id": "distilbert/distilbert-base-uncased-finetuned-sst-2-english",
+      "hf_revision": "714eb0fa89d2f80546fda750413ed43d93601a13",
+      "metrics": {
+        "accuracy": 0.9666666666666667,
+        "macro_precision": 0.96875,
+        "macro_recall": 0.9666666666666667,
+        "macro_f1": 0.9666295884315907,
+        "avg_latency_ms": 8.623835000010635,
+        "total_inference_s": 0.517430100000638,
+        "parameters_millions": 66.95501
+      }
+    },
+    "B": {
+      "run_id": "1f747868d984477db5c0e100c3049d22",
+      "model_uri": "models:/m-b2863226e8a24c67b12da8b6047db391",
+      "hf_model_id": "M-FAC/bert-tiny-finetuned-sst2",
+      "hf_revision": "41ad6709ec46b414749b37daf49cf5ca1c7dba7c",
+      "metrics": {
+        "accuracy": 0.8,
+        "macro_precision": 0.8374999999999999,
+        "macro_recall": 0.8,
+        "macro_f1": 0.7942857142857143,
+        "avg_latency_ms": 0.8706799999951423,
+        "total_inference_s": 0.05224079999970854,
+        "parameters_millions": 4.386178
+      }
+    }
+  },
+  "summary_run_id": "2c0c50cf54d14a94a5dd03c9efd73ddb",
+  "winner": "A",
+  "delta_primary_metric": -0.17234387414587649,
+  "disagreements_count": 12
+}

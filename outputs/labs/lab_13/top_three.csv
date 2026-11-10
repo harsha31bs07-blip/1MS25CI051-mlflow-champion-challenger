@@ -1,0 +1,4 @@
+run_id,mae,test_size,random_state,fit_intercept,dataset,train_samples,test_samples
+e787a6766e9a447c97f678e8f48dae8b,1.789256444363183,0.2,21,True,baseline,40,10
+806f3772b1644015b2fc6ae9f2c95f37,2.350492283408683,0.3,21,True,baseline,35,15
+24ebaa5d5a774898bab04d0acf7ab571,2.603068862106416,0.4,21,True,baseline,30,20

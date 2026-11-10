@@ -54,10 +54,17 @@ def fit(kind='baseline', test_size=.2, seed=42, intercept=True):
 
 def track(experiment, name, kind='baseline', test_size=.2, seed=42, intercept=True, full=True, model_log=True):
     model, out, metrics, obs = fit(kind, test_size, seed, intercept)
-    mlflow.set_experiment(experiment)
+    if os.getenv('MLFLOW_RUN_ID'):
+        # MLflow Projects creates its run before invoking this entry point.
+        mlflow.set_experiment(experiment_id=MlflowClient().get_run(os.environ['MLFLOW_RUN_ID']).info.experiment_id)
+    else:
+        mlflow.set_experiment(experiment)
     with mlflow.start_run(run_name=name) as run:
-        mlflow.log_params({'test_size': test_size, 'random_state': seed, 'fit_intercept': intercept,
-                          'dataset': kind, 'train_samples': int((obs.split == 'train').sum()), 'test_samples': len(out)})
+        params = {'test_size': test_size, 'random_state': seed, 'fit_intercept': intercept,
+                  'dataset': kind, 'train_samples': int((obs.split == 'train').sum()), 'test_samples': len(out)}
+        # Projects already logs raw parameter strings (e.g. 0.40); do not overwrite.
+        existing = MlflowClient().get_run(run.info.run_id).data.params
+        mlflow.log_params({k: v for k, v in params.items() if k not in existing})
         mlflow.log_metrics(metrics if full else {'mae': metrics['mae']})
         mlflow.log_table(out, 'actual_predicted_errors.json')
         mlflow.log_table(obs, 'observations.json')
@@ -178,7 +185,11 @@ def run_lab(number, intercept=None):
     elif number == 12:
         print((ROOT / 'labs/lab_12/MLproject').read_text())
         for size in ['0.25', '0.40']:
-            subprocess.run([sys.executable, '-m', 'mlflow', 'run', str(ROOT / 'labs/lab_12'), '--env-manager', 'local', '-P', f'test_size={size}', '-P', 'random_state=7'], check=True)
+            env = {**os.environ, 'MLFLOW_EXPERIMENT_NAME': 'Lab12-Projects', 'PATH': str(Path(sys.executable).parent) + os.pathsep + os.environ['PATH']}
+            result = subprocess.run([sys.executable, '-m', 'mlflow', 'run', str(ROOT / 'labs/lab_12'), '--env-manager', 'local', '-P', f'test_size={size}', '-P', 'random_state=7'], env=env, capture_output=True, text=True, encoding='utf-8')
+            print(result.stdout, result.stderr)
+            if result.returncode:
+                raise RuntimeError(result.stdout + result.stderr)
     elif number == 13:
         client = MlflowClient()
         experiment = client.get_experiment_by_name('Lab05-Comparison')

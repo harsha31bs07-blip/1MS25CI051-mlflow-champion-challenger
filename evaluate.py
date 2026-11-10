@@ -21,7 +21,7 @@ from hf_model import SentimentModel
 
 def choose_winner(a, b):
     delta = b['macro_f1'] - a['macro_f1']
-    return 'B' if delta >= RULE['margin'] and b['avg_latency_ms'] <= RULE['max_latency_ratio'] * a['avg_latency_ms'] else 'A'
+    return 'B' if delta + 1e-12 >= RULE['margin'] and b['avg_latency_ms'] <= RULE['max_latency_ratio'] * a['avg_latency_ms'] else 'A'
 
 
 def validate_data(evaluation, new):

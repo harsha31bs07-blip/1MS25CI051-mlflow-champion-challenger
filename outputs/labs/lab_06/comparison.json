@@ -1,0 +1,34 @@
+{
+  "autolog": {
+    "params": {
+      "copy_X": "True",
+      "fit_intercept": "True",
+      "n_jobs": "None",
+      "positive": "False",
+      "tol": "1e-06"
+    },
+    "metrics": {
+      "training_mean_squared_error": 8.183214896590247,
+      "training_mean_absolute_error": 2.3768750185456993,
+      "training_r2_score": 0.9942586618543975,
+      "training_root_mean_squared_error": 2.860631905119959,
+      "training_score": 0.9942586618543975,
+      "LinearRegression_score_unknown_dataset-2": 0.9849293558822475
+    }
+  },
+  "manual": {
+    "params": {
+      "test_size": "0.2",
+      "random_state": "42",
+      "fit_intercept": "True",
+      "dataset": "baseline",
+      "train_samples": "40",
+      "test_samples": "10"
+    },
+    "metrics": {
+      "mae": 2.6883872936670796,
+      "mse": 12.429919015934288,
+      "r2": 0.9849293558822475
+    }
+  }
+}

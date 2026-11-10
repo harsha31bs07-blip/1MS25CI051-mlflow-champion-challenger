@@ -1,6 +1,12 @@
 """Shared configuration. Set STUDENT_USN and MLFLOW_TRACKING_URI as needed."""
 import os
+import sys
 from pathlib import Path
+
+# MLflow emits Unicode run links; Windows redirected consoles may default to cp1252.
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+os.environ.setdefault('PYTHONIOENCODING', 'utf-8')
 
 ROOT = Path(__file__).resolve().parent
 OUTPUTS = ROOT / 'outputs'

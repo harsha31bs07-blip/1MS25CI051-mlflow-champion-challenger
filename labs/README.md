@@ -45,3 +45,19 @@ Interpretation: MAE is in target units; MSE squares those units; R2 compares to 
 constant test-mean baseline and can be negative. Tiny delivery splits are unstable.
 Saving exact row membership and seed is more useful than recording counts alone.
 No quiz questions were included in the documents.
+
+The named exercise entry points (firstmlflow_run.py, multiple_runs.py,
+autolog_demo.py, model_component.py, registry.py and client_demo.py) are also
+provided in their corresponding lab folders. Their shared implementation remains
+in run_labs.py. Lab08/load_and_predict.py and Lab11/predict_champion.py perform
+standalone reloads without retraining. Lab09's custom logger uses evaluate.py;
+its prediction entry point reads the saved model URI from that execution.
+
+To regenerate the completed Word record after executing all labs:
+
+```powershell
+npm install --prefix .artifact-tools docx
+node build_record.cjs
+```
+
+The original briefs are preserved. The generated record is a separate deliverable.

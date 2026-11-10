@@ -1,0 +1,52 @@
+python -m mlflow, version 3.18.0
+
+Usage: python -m mlflow [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version        Show the version and exit.
+  --env-file PATH  Load environment variables from a dotenv file before
+                   executing the command. Variables in the file will be loaded
+                   but won't override existing environment variables.
+  --help           Show this message and exit.
+
+Commands:
+  agent              Coding-agent integrations for MLflow (prototype).
+  ai-commands        Manage MLflow AI commands for LLMs.
+  artifacts          Upload, list, and download artifacts from an MLflow...
+  assistant          MLflow Assistant - AI-powered trace analysis.
+  autolog            Commands for autologging with MLflow.
+  crypto             Commands for managing MLflow's cryptographic...
+  datasets           Manage GenAI evaluation datasets.
+  db                 Commands for managing an MLflow tracking database.
+  demo               Launch MLflow with pre-populated demo data for...
+  deployments        Deploy MLflow models to custom targets.
+  doctor             Prints out useful information for debugging issues with
+                     MLflow.
+  experiments        Manage experiments.
+  gc                 Permanently delete runs in the `deleted` lifecycle stage.
+  mcp                Model Context Protocol (MCP) server for MLflow.
+  migrate-filestore  Migrate MLflow FileStore data to a SQLite database.
+  models             Deploy MLflow models locally.
+  run                Run an MLflow project from the given URI.
+  runs               Manage runs.
+  sagemaker          Serve models on SageMaker.
+  scorers            Manage scorers, including LLM judges.
+  server             Run the MLflow tracking server (UI + REST API).
+  skills             Inspect bundled MLflow skills and pull skills from...
+  traces             Manage traces.
+
+Experiment Id    Name                                  Artifact Location                                                   
+---------------  ------------------------------------  --------------------------------------------------------------------
+0                Default                               file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/0 
+1                hf-sentiment-champion-challenger      file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/1 
+10               Lab11-Registry                        file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/10
+11               Lab12-Projects                        file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/11
+2                Lab03-Tracking                        file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/2 
+3                Lab04-Logging                         file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/3 
+4                Lab05-Comparison                      file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/4 
+5                Lab06-Autolog-vs-Manual               file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/5 
+6                Lab07-Shared-Server                   file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/6 
+7                Lab08-Models                          file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/7 
+8                Linear Regression Experiment          file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/8 
+9                Linear Regression Metrics Experiment  file:C:/Users/HARSHA B S/Desktop/SKILL LAB ASSIGNMENT/mlartifacts/9 
+

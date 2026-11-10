@@ -1,0 +1,13 @@
+id,text,reference,prediction_A,prediction_B,comment
+3,The service was quick and the staff were kind.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+15,The hotel room was spotless and comfortable.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+19,The new update makes everything much easier.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+25,There is nothing disappointing about this lovely album.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+27,The slow opening leads to a deeply satisfying conclusion.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+28,Great packaging cannot rescue this terrible product.,NEGATIVE,NEGATIVE,POSITIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+31,This is far better than I had feared.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+33,The jokes are silly but they made me laugh.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+35,I did not expect to love this as much as I did.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+41,The instructions were clear and setup was effortless.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."
+43,The battery easily lasted through my entire trip.,POSITIVE,NEGATIVE,POSITIVE,"B matches the intended label; examine negation, mixed sentiment and wording."
+55,Even its flaws could not spoil my enjoyment.,POSITIVE,POSITIVE,NEGATIVE,"A matches the intended label; examine negation, mixed sentiment and wording."

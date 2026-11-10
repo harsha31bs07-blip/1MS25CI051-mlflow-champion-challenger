@@ -6,8 +6,19 @@ Use http://127.0.0.1:5000 after execution. Screenshots must show actual runs.
    runs, Compare. Include names, macro_f1 and latency.
 2. `registry_aliases.png`: Models > sentiment-model, show champion and challenger
    versions and their Hugging Face tags.
-3. `prediction_terminal.png`: terminal running predict_from_mlflow.py, including
-   alias URI, version/model ID and predictions.
+3. `prediction_terminal.png`: a clearly labeled browser rendering of the verbatim
+   terminal transcript from predict_from_mlflow.py, including alias URI, model
+   version/ID and all eight predictions. It is not a native console screenshot.
+   If the instructor requires the console window itself, capture that window too.
 
-Text evidence is also saved in outputs/prediction_terminal.txt, metrics_summary.json
-and registry.json. It does not replace the required UI screenshots.
+The comparison and registry images capture the actual local MLflow UI. Text
+evidence is also saved in outputs/prediction_terminal.txt, metrics_summary.json
+and registry.json. Regenerate with capture_evidence.py (optional evidence dependencies).
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-evidence.txt
+.\.venv\Scripts\python.exe capture_evidence.py
+```
+
+The screenshot script launches installed Microsoft Edge with an isolated headless
+profile, opens only the local MLflow server, and renders the saved transcript.

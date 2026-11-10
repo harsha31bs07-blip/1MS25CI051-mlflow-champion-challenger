@@ -1,0 +1,28 @@
+🏃 View run baseline at: http://127.0.0.1:5000/#/experiments/2/runs/f0f41f8a72cb4f11a3dc63e8ad708e7b
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/2
+{
+  "run_id": "f0f41f8a72cb4f11a3dc63e8ad708e7b",
+  "model_uri": "models:/m-040821dbfbde48acb90e14c895e66f13",
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+🏃 View run delivery at: http://127.0.0.1:5000/#/experiments/2/runs/74c72a3fcc4d41a59c2ef4cd7d328f47
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/2
+{
+  "run_id": "74c72a3fcc4d41a59c2ef4cd7d328f47",
+  "model_uri": "models:/m-b59c3257f23e4c45b8eb8f1da3973d74",
+  "mae": 2.0,
+  "mse": 4.0,
+  "train_samples": 4,
+  "test_samples": 1,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+Tracking URI: http://127.0.0.1:5000

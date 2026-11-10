@@ -1,0 +1,13 @@
+Loaded models:/sentiment-model@champion
+Version: 1
+Hugging Face model: distilbert/distilbert-base-uncased-finetuned-sst-2-english
+
+ id                                                        text prediction  confidence model_version                                                hf_model_id
+101    The repair team solved the problem faster than promised.   POSITIVE    0.839799             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+102          My headphones crackle constantly and hurt my ears.   NEGATIVE    0.997632             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+103             I loved the playful animation and gentle humor.   POSITIVE    0.999877             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+104               The museum tour was rushed and disappointing.   NEGATIVE    0.999712             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+105  The garden cafe is a peaceful place with excellent coffee.   POSITIVE    0.999840             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+106    The booking system charged me twice and offered no help.   NEGATIVE    0.998511             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+107  Although short the workshop was packed with useful advice.   POSITIVE    0.986344             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english
+108 The game has beautiful graphics but is frustrating to play.   NEGATIVE    0.933018             1 distilbert/distilbert-base-uncased-finetuned-sst-2-english

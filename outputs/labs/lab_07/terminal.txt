@@ -1,0 +1,29 @@
+🏃 View run intercept-True at: http://127.0.0.1:5000/#/experiments/6/runs/7f51359b2e4b4b6aaa05108a796b32b3
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/6
+{
+  "run_id": "7f51359b2e4b4b6aaa05108a796b32b3",
+  "model_uri": "models:/m-05e9eff713734e64b90237406a857414",
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+🏃 View run intercept-False at: http://127.0.0.1:5000/#/experiments/6/runs/834c6a684faf4cd38ec27902826a3abe
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/6
+{
+  "run_id": "834c6a684faf4cd38ec27902826a3abe",
+  "model_uri": "models:/m-3a100e9706d94bd5b679492c3dd9846c",
+  "mae": 3.591362836073107,
+  "mse": 23.3843834016056,
+  "r2": 0.9716476254023133,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": false
+}
+Both scripts use the same server and experiment. No separate server is needed. A shared store centralizes comparisons, provenance and artifact access for a team.

@@ -1,0 +1,28 @@
+🏃 View run mae-only at: http://127.0.0.1:5000/#/experiments/8/runs/59a790e2af364218bdd13ec712a9e611
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/8
+{
+  "run_id": "59a790e2af364218bdd13ec712a9e611",
+  "model_uri": "models:/m-545ec96c0612426b91a954c84dcce620",
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+🏃 View run mae-mse-r2 at: http://127.0.0.1:5000/#/experiments/9/runs/ee307239ae024e04b6e76b233c090a70
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/9
+{
+  "run_id": "ee307239ae024e04b6e76b233c090a70",
+  "model_uri": "models:/m-14ee09a82f9144819e76b1ff9465dfdb",
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}

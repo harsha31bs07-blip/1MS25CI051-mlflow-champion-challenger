@@ -1,0 +1,18 @@
+🏃 View run model-component at: http://127.0.0.1:5000/#/experiments/7/runs/e958e80b93714ab586cbc47dd1cd5714
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/7
+{
+  "run_id": "e958e80b93714ab586cbc47dd1cd5714",
+  "model_uri": "models:/m-feb5d9dc7f044284a619a9ed62176723",
+  "mae": 2.6883872936670796,
+  "mse": 12.429919015934288,
+  "r2": 0.9849293558822475,
+  "train_samples": 40,
+  "test_samples": 10,
+  "test_size": 0.2,
+  "random_state": 42,
+  "fit_intercept": true
+}
+   x  prediction
+ 2.0   14.459734
+ 6.0   24.576223
+12.0   39.750957

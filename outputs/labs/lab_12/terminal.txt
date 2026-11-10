@@ -1,0 +1,68 @@
+name: regression-skill-lab
+entry_points:
+  main:
+    parameters:
+      test_size: {type: float, default: 0.25}
+      random_state: {type: int, default: 7}
+    command: "python train.py --test-size {test_size} --random-state {random_state}"
+
+🏃 View run test-0.25 at: http://127.0.0.1:5000/#/experiments/11/runs/876e2520208743acae1be021b3c93e8a
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/11
+{
+  "run_id": "876e2520208743acae1be021b3c93e8a",
+  "model_uri": "models:/m-83b8ba599e854d23af753c418896b7bf",
+  "mae": 3.224503087834748,
+  "mse": 14.199916108219831,
+  "r2": 0.9864979255892545,
+  "train_samples": 37,
+  "test_samples": 13,
+  "test_size": 0.25,
+  "random_state": 7,
+  "fit_intercept": true
+}
+🏃 View run test-0.25 at: http://127.0.0.1:5000/#/experiments/11/runs/876e2520208743acae1be021b3c93e8a
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/11
+ 2026/11/10 14:31:02 INFO mlflow.projects.utils: === Created directory C:\Users\HARSHA B S\AppData\Local\Temp\tmpm5gvb5hb for downloading remote URIs passed to arguments of type 'path' ===
+2026/11/10 14:31:02 INFO mlflow.projects.backend.local: === Running command 'python train.py --test-size 0.25 --random-state 7' in run with ID '876e2520208743acae1be021b3c93e8a' === 
+
+Downloading artifacts:   0%|          | 0/7 [00:00<?, ?it/s]
+Downloading artifacts:  14%|█▍        | 1/7 [00:00<00:00, 10058.28it/s]
+Downloading artifacts:  29%|██▊       | 2/7 [00:00<00:00, 7973.96it/s] 
+Downloading artifacts:  43%|████▎     | 3/7 [00:00<00:00, 9098.27it/s]
+Downloading artifacts:  57%|█████▋    | 4/7 [00:00<00:00, 10131.17it/s]
+Downloading artifacts:  71%|███████▏  | 5/7 [00:00<00:00, 10591.68it/s]
+Downloading artifacts:  86%|████████▌ | 6/7 [00:00<00:00, 11290.19it/s]
+Downloading artifacts: 100%|██████████| 7/7 [00:00<00:00, 2437.74it/s] 
+Downloading artifacts: 100%|██████████| 7/7 [00:00<00:00, 2238.67it/s]
+2026/11/10 14:31:20 INFO mlflow.projects: === Run (ID '876e2520208743acae1be021b3c93e8a') succeeded ===
+
+🏃 View run test-0.4 at: http://127.0.0.1:5000/#/experiments/11/runs/7ef5c5bd70a64854808dffbb7f84ef47
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/11
+{
+  "run_id": "7ef5c5bd70a64854808dffbb7f84ef47",
+  "model_uri": "models:/m-5c74cbbf54884bee95161b5d0ac8ae4a",
+  "mae": 3.2097054030288503,
+  "mse": 13.408414989061717,
+  "r2": 0.9878516525645399,
+  "train_samples": 30,
+  "test_samples": 20,
+  "test_size": 0.4,
+  "random_state": 7,
+  "fit_intercept": true
+}
+🏃 View run test-0.4 at: http://127.0.0.1:5000/#/experiments/11/runs/7ef5c5bd70a64854808dffbb7f84ef47
+🧪 View experiment at: http://127.0.0.1:5000/#/experiments/11
+ 2026/11/10 14:31:26 INFO mlflow.projects.utils: === Created directory C:\Users\HARSHA B S\AppData\Local\Temp\tmp9v8we1di for downloading remote URIs passed to arguments of type 'path' ===
+2026/11/10 14:31:26 INFO mlflow.projects.backend.local: === Running command 'python train.py --test-size 0.40 --random-state 7' in run with ID '7ef5c5bd70a64854808dffbb7f84ef47' === 
+
+Downloading artifacts:   0%|          | 0/7 [00:00<?, ?it/s]
+Downloading artifacts:  14%|█▍        | 1/7 [00:00<00:00, 10922.67it/s]
+Downloading artifacts:  29%|██▊       | 2/7 [00:00<00:00, 6163.56it/s] 
+Downloading artifacts:  43%|████▎     | 3/7 [00:00<00:00, 6519.64it/s]
+Downloading artifacts:  57%|█████▋    | 4/7 [00:00<00:00, 7523.42it/s]
+Downloading artifacts:  71%|███████▏  | 5/7 [00:00<00:00, 8378.55it/s]
+Downloading artifacts:  86%|████████▌ | 6/7 [00:00<00:00, 9042.70it/s]
+Downloading artifacts: 100%|██████████| 7/7 [00:00<00:00, 2478.69it/s]
+Downloading artifacts: 100%|██████████| 7/7 [00:00<00:00, 2331.46it/s]
+2026/11/10 14:31:44 INFO mlflow.projects: === Run (ID '7ef5c5bd70a64854808dffbb7f84ef47') succeeded ===
+

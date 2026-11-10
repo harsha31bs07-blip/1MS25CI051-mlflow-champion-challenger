@@ -1,0 +1,28 @@
+[
+  {
+    "run_id": "a05cb2770d544cb9955fa94f43638fbd",
+    "model_uri": "models:/m-cea697e58d3d488a9008a227c19fce23",
+    "mae": 2.6883872936670796,
+    "mse": 12.429919015934288,
+    "r2": 0.9849293558822475,
+    "train_samples": 40,
+    "test_samples": 10,
+    "test_size": 0.2,
+    "random_state": 42,
+    "fit_intercept": true,
+    "version": "1"
+  },
+  {
+    "run_id": "898d8b79a9a94986afcb2d620df2689a",
+    "model_uri": "models:/m-30e07d05d2874ff2b250c48eb25dd308",
+    "mae": 3.591362836073107,
+    "mse": 23.3843834016056,
+    "r2": 0.9716476254023133,
+    "train_samples": 40,
+    "test_samples": 10,
+    "test_size": 0.2,
+    "random_state": 42,
+    "fit_intercept": false,
+    "version": "2"
+  }
+]
