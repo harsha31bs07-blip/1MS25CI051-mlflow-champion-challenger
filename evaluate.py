@@ -15,7 +15,7 @@ import pandas as pd
 import torch
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, ConfusionMatrixDisplay
 from transformers import pipeline, set_seed
-from config import ROOT, OUTPUTS, TRACKING_URI, EXPERIMENT, SEED, MODEL_A, MODEL_B, RULE, STUDENT
+from config import ROOT, OUTPUTS, TRACKING_URI, EXPERIMENT, SEED, MODEL_A, MODEL_B, MODEL_REVISIONS, RULE, STUDENT
 from hf_model import SentimentModel
 
 
@@ -25,11 +25,20 @@ def choose_winner(a, b):
 
 
 def validate_data(evaluation, new):
+    if not {'id', 'text', 'reference'} <= set(evaluation.columns) or not {'id', 'text'} <= set(new.columns):
+        raise ValueError('Require evaluation id/text/reference and new-data id/text columns')
+    for name, frame in [('Evaluation', evaluation), ('New', new)]:
+        if frame['id'].isna().any() or frame['id'].duplicated().any():
+            raise ValueError(f'{name} IDs must be present and unique')
+        if not frame['text'].map(lambda t: isinstance(t, str) and bool(t.strip())).all():
+            raise ValueError(f'{name} texts must be nonblank strings')
+        if frame['text'].str.strip().str.casefold().duplicated().any():
+            raise ValueError(f'{name} texts must be unique after whitespace/case normalization')
     if evaluation.empty or evaluation['text'].isna().any() or evaluation['text'].duplicated().any():
         raise ValueError('Evaluation data must be nonempty with unique non-null texts')
     if set(evaluation.reference) != {'NEGATIVE', 'POSITIVE'}:
         raise ValueError('Both binary labels are required')
-    if not 5 <= len(new) <= 10 or set(new.text) & set(evaluation.text):
+    if not 5 <= len(new) <= 10 or set(new.text.str.strip().str.casefold()) & set(evaluation.text.str.strip().str.casefold()):
         raise ValueError('Require 5–10 new examples disjoint from evaluation')
 
 
@@ -52,7 +61,7 @@ def main():
         mlflow.log_text(readme.decode(), 'README_before_run.md')
         for role, model_id, short in [('A', MODEL_A, 'distilbert-sst2'), ('B', MODEL_B, 'bert-tiny-sst2')]:
             print(f'Loading {role}: {model_id}', flush=True)
-            pipe = pipeline('text-classification', model=model_id, device=-1)
+            pipe = pipeline('text-classification', model=model_id, revision=MODEL_REVISIONS[model_id], device=-1)
             pipe(['Warm-up input.'], truncation=True, max_length=128)
             started = time.perf_counter()
             raw = pipe(data.text.tolist(), batch_size=8, truncation=True, max_length=128)

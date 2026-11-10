@@ -28,7 +28,8 @@ README and the input data is logged with every comparison.
 ## How to run (PowerShell, from repository root)
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt -c requirements-lock.txt
 $env:STUDENT_USN = '1MS25CI051'
 .\.venv\Scripts\python.exe -m mlflow server --host 127.0.0.1 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlartifacts
 ```
@@ -49,6 +50,10 @@ for offline reload. CPU, seed 42, batch size 8 and maximum 128 tokens are fixed.
 Model download/load and one warm-up call are excluded from timing; elapsed time
 is measured around evaluation inference only. Full environment is saved to
 `requirements-lock.txt`. See `labs/README.md` for each exercise and commands.
+The setup above creates the environment on a fresh clone. It was tested on
+Windows with CPython 3.13. Both Hub model revisions are pinned in config.py to
+the exact commits recorded in outputs/metrics_summary.json. The lock file is
+the executed environment snapshot; verification does not rewrite it.
 
 ## Results table and decision
 
@@ -78,7 +83,7 @@ production benchmark. Confidence scores are not calibrated probabilities. Both
 models may miss sarcasm, context or domain-specific language. No test data is used
 for training or threshold selection. AI assistance (OpenAI Codex) was used to read
 requirements, author data, implement code, debug and write explanations. The student
-must review and understand every line, supply identity, and explain the choices in
+must review and understand every line and explain the choices in
 the viva. The two subsequently supplied quiz documents are answered in
 `Completed_Quiz_Answers.docx` and `quiz_answers.json`, with explanations checked
 against their supplied keys. No instructor marks are claimed.
@@ -99,12 +104,18 @@ GitHub publication and LMS submission require the student's account and identity
 `Completed_Lab_Record.docx` (and PDF) contains the lab observations and actual
 output excerpts. Full transcripts and tables are under `outputs/labs/`.
 `outputs/verification.json` records full evaluation replay for both MLflow models,
-metric recalculation and registry checks. Five automated checks pass.
+metric recalculation and registry checks. Run pytest for the current test count.
 The three screenshot files are under `screenshots/`; the prediction image is a
 clearly labeled rendering of the verbatim terminal transcript. Capture the native
 terminal window as well if that format is required by your instructor.
 Source, data and measured evidence have at least three local Git commits. The
 initial commit preserves the Champion rule before the completed evaluation.
+
+## Audit
+
+See `ASSIGNMENT_AUDIT.md` for the requirement-by-requirement review, fixes and
+remaining submission actions. Run `audit_labs.py` to check all fourteen recorded
+lab exercises against recomputed results and the live tracking server.
 
 References: [MLflow PythonModel](https://mlflow.org/docs/latest/ml/model/python_model/),
 [MLflow registry](https://mlflow.org/docs/latest/ml/model-registry/), and each

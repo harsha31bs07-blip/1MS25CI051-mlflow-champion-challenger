@@ -1,7 +1,7 @@
 {
   "checks": [
-    "A: saved inputs, recomputed F1, logged metadata and full model replay passed",
-    "B: saved inputs, recomputed F1, logged metadata and full model replay passed",
+    "A: inputs, all classification metrics, latency arithmetic, parameters, artifacts, pinned revision and full model replay passed",
+    "B: inputs, all classification metrics, latency arithmetic, parameters, artifacts, pinned revision and full model replay passed",
     "Decision and both registry aliases verified",
     "All fourteen lab transcripts present",
     "Eight new-data predictions saved",

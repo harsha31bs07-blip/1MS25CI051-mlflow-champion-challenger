@@ -1,0 +1,16 @@
+{
+  "01": "Six recomputed split metrics/counts; CSV membership columns; six workbook sheets",
+  "02": "Baseline/delivery run evidence and actual legacy store listing",
+  "03": "Both baseline/delivery runs found on tracking server",
+  "04": "Exact supplied hospital dataset; held-out predictions and signed errors recomputed",
+  "05": "All nine seed/split MAE and R2 pairs recomputed",
+  "06": "Actual automatic/manual metadata and held-out MAE cross-checked",
+  "07": "Both intercept configurations share one live experiment",
+  "08": "Saved sklearn URI reload reproduced all three predictions",
+  "09": "Custom model URI and both recorded predictions cross-checked; full HF replay in verify_submission.py",
+  "10": "Exact two experiment names and correct distinct logged metric sets",
+  "11": "Regression alias selects the recorded lower-MAE candidate",
+  "12": "Both CLI Project runs finished with required sizes and seed",
+  "13": "Top three IDs match the saved nine-run comparison ranked by MAE",
+  "14": "CLI version/help/experiment listing evidence confirmed"
+}

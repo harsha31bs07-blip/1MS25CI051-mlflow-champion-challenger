@@ -1,6 +1,7 @@
 import ast
 from pathlib import Path
 import pandas as pd
+import pytest
 from evaluate import choose_winner, validate_data
 from config import ROOT
 
@@ -23,8 +24,31 @@ def test_dataset_contract():
 def test_prediction_script_uses_mlflow_only():
     tree = ast.parse((ROOT / 'predict_from_mlflow.py').read_text())
     imports = [node.module for node in ast.walk(tree) if isinstance(node, ast.ImportFrom)]
+    imports += [alias.name for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names]
     assert not any(m and ('transformers' in m or 'hf_model' in m) for m in imports)
     assert 'mlflow.pyfunc.load_model(uri)' in ast.unparse(tree)
+
+
+@pytest.mark.parametrize('problem', ['missing_column', 'null_text', 'blank_text', 'duplicate_text', 'duplicate_id', 'overlap', 'too_few'])
+def test_new_data_rejects_invalid_inputs(problem):
+    evaluation = pd.read_csv(ROOT / 'data/eval_inputs.csv')
+    new = pd.read_csv(ROOT / 'data/new_data.csv')
+    if problem == 'missing_column':
+        new = new.drop(columns='text')
+    elif problem == 'null_text':
+        new.loc[0, 'text'] = None
+    elif problem == 'blank_text':
+        new.loc[0, 'text'] = '   '
+    elif problem == 'duplicate_text':
+        new.loc[0, 'text'] = '  ' + new.loc[1, 'text'].upper() + ' '
+    elif problem == 'duplicate_id':
+        new.loc[0, 'id'] = new.loc[1, 'id']
+    elif problem == 'overlap':
+        new.loc[0, 'text'] = '  ' + evaluation.loc[0, 'text'].upper() + ' '
+    else:
+        new = new.head(4)
+    with pytest.raises(ValueError):
+        validate_data(evaluation, new)
 
 
 def test_exact_assignment_tables_and_small_split():

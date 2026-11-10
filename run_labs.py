@@ -90,7 +90,7 @@ def run_lab(number, intercept=None):
                 for size in [.2, .3, .4]:
                     _, out, metrics, obs = fit(kind, size)
                     key = f'{kind}_{size}'
-                    obs = obs.assign(execution=key, test_size=size, seed=42)
+                    obs = obs.assign(execution=key, dataset=kind, test_size=size, seed=42)
                     obs.to_excel(writer, sheet_name=key, index=False)
                     observations.append(obs)
                     summaries.append({'dataset': kind, 'test_size': size, 'train_samples': int((obs.split=='train').sum()), 'test_samples': len(out), **metrics})
