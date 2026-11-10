@@ -1,0 +1,7 @@
+name: regression-skill-lab
+entry_points:
+  main:
+    parameters:
+      test_size: {type: float, default: 0.25}
+      random_state: {type: int, default: 7}
+    command: "python train.py --test-size {test_size} --random-state {random_state}"
