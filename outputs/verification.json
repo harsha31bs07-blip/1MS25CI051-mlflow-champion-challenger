@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-13T14:08:16.726135+00:00",
+  "checked_at_utc": "2026-11-19T11:46:35.133392+00:00",
   "status": "passed",
   "checks": [
     "A: inputs, all classification metrics, latency arithmetic, parameters, artifacts, pinned revision and full model replay passed",
@@ -12,9 +12,7 @@
   ],
   "remaining_student_actions": [
     "Fill course title and course code on the cover page",
-    "Provide LMS assignment URL for submission",
-    "Give instructor access to the private repository",
-    "Add a native terminal screenshot; the included image is a labeled transcript rendering",
+    "Submit the public GitHub repository link on the LMS and keep the receipt",
     "Review implementation and quiz explanations for viva"
   ]
 }

@@ -1,24 +1,23 @@
 {
-  "checked_at_utc": "2026-11-13T14:04:39.928580+00:00",
+  "checked_at_utc": "2026-11-19T12:03:51.228121+00:00",
   "status": "passed",
   "renderer": "DOCX content and layout mapped to local HTML; headless Microsoft Edge PDF; PyMuPDF page rasterization",
   "documents": {
     "Completed_Lab_Record.docx": {
-      "sha256": "ceb39bdcbe9b025c8aa11ab532622e6d7fe21810c63cc4031c4b0b37469a2565",
+      "sha256": "7f43b222144695e451ed5d82228bac22e9d694b37490efbc30966122d36af42f",
       "pages": 23
     },
     "Completed_Lab_Record.pdf": {
-      "sha256": "ad1d56ba093e3a164b82d59f76a1d302702d7a9b1372575cbf7cab271837ad0e",
+      "sha256": "890bc39b18b8b5223022c93f6b16558fc5931317245a35e3d85fdd9a6f948cc2",
       "pages": 23
     },
     "Completed_Quiz_Answers.docx": {
-      "sha256": "7fc1488237ce897d8e575e75a993bd34ef39bdd23ebbab7d9ff6e88bf8cbf4a8",
+      "sha256": "3b726fc9d82f4e77ab6e04429195a41b2dbedc9754ed9d09e21fd526c757cd4e",
       "pages": 2
     },
     "Completed_Quiz_Answers.pdf": {
-      "sha256": "6cb968d3ae19be5d40bff7833ecc2a767e407dc82a78ec130a7ddeb224a95544",
+      "sha256": "98366bda85536568029e5a8c6d99acd0d39656314226690c4bc515f66cf63a1c",
       "pages": 2
     }
-  },
-  "visual_review": "All 23 record pages and 2 quiz pages inspected; no clipping, blank pages or broken tables."
+  }
 }

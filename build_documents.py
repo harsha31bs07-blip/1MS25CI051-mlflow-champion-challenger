@@ -211,7 +211,8 @@ def main():
     doc.add_picture(str(ROOT / 'screenshots/registry_aliases.png'), width=Inches(6.6))
     p(doc, 'Actual local MLflow registry view showing champion and challenger aliases.')
     heading(doc, 'Prediction Evidence', 2)
-    p(doc, 'outputs/prediction_terminal.txt preserves the executed command output. screenshots/prediction_terminal.png is a labeled rendering of that transcript. A native terminal-window capture must be added before final submission; desktop screenshot support is unavailable in this session.')
+    doc.add_picture(str(ROOT / 'screenshots/prediction_terminal.png'), width=Inches(6.6))
+    p(doc, 'Native Windows console capture of predict_from_mlflow.py loading the Champion alias, taken during the 19 November 2026 fresh-clone re-execution. Its printed table is identical to outputs/prediction_terminal.txt, which preserves the original command output.')
 
     for number, topic in enumerate(TOPICS, 1):
         heading(doc, f'Lab {number:02} {topic}', new_page=True)
@@ -239,7 +240,7 @@ def main():
     p(doc, 'The original teaching starter scripts were not supplied. The general baseline is deterministic synthetic regression data; delivery and hospital tables reproduce the brief. The repeated Projects heading is numbered Lab 12. Full executable source and all saved transcripts are included.')
     p(doc, 'The sentiment sample is small and not randomly drawn from a target population. AI-authored intended labels were not independently annotated. Training overlap cannot be excluded; CPU timings vary with load. Scores do not establish population performance or statistical significance. Confidence scores are not calibrated probabilities.')
     p(doc, QUIZZES['declaration'])
-    p(doc, 'Local tests and model/lab replay passed. SUBMISSION_GUIDE.md lists the final files and remaining administrative steps. Instructor access to the private repository, a native terminal screenshot, course details and LMS submission still require completion. No marks, signature or submission receipt are claimed.')
+    p(doc, 'On 19 November 2026 a fresh clone followed README.md from an empty tracking store and reproduced every classification metric, prediction, alias and the inference transcript exactly; all 18 tests, full model replay and all fourteen lab audits passed. The repository is public. SUBMISSION_GUIDE.md lists the final files; course details and the LMS submission of the repository link remain. No marks, signature or submission receipt are claimed.')
     p(doc, 'References: supplied assignment and lab book; MLflow PythonModel documentation at https://mlflow.org/docs/latest/ml/model/python_model/; MLflow registry documentation at https://mlflow.org/docs/latest/ml/model-registry/; the two Hugging Face model cards identified above.')
     doc.save(ROOT / 'Completed_Lab_Record.docx')
 

@@ -28,12 +28,13 @@ def main():
         page.wait_for_timeout(5000)
         page.screenshot(path=str(ROOT / 'screenshots/registry_aliases.png'), full_page=True)
         print('REGISTRY:', page.locator('body').inner_text()[:6000])
-        # Browser rendering of the verbatim terminal transcript, clearly labeled.
-        # This is supporting evidence, not a claim to be a native terminal capture.
+        # Optional browser rendering of the verbatim transcript (git-ignored).
+        # screenshots/prediction_terminal.png is a native console capture and is
+        # not overwritten here.
         import html
         transcript = (OUTPUTS / 'prediction_terminal.txt').read_text(encoding='utf-8')
         page.set_content('<html><body style="background:#101820;color:#e5eef4;padding:28px;font:16px Consolas,monospace"><h2>predict_from_mlflow.py — verbatim execution transcript</h2><pre style="white-space:pre-wrap">' + html.escape(transcript) + '</pre></body></html>')
-        page.screenshot(path=str(ROOT / 'screenshots/prediction_terminal.png'), full_page=True)
+        page.screenshot(path=str(ROOT / 'screenshots/prediction_transcript.png'), full_page=True)
         browser.close()
 
 

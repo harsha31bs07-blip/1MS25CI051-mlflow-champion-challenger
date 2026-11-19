@@ -1,11 +1,12 @@
 ﻿# Final assignment audit
 
-Review date: 13 November 2026. Student: HARSHA BS, 1MS25CI051, Section A.
+Review date: 13 November 2026; fresh-clone re-verification 19 November 2026.
+Student: HARSHA BS, 1MS25CI051, Section A.
 
-The local implementation, measured evidence and final documents pass the review.
-The submission package is prepared locally. Course details, a native terminal
-screenshot, instructor access to the private repository and the LMS upload remain
-student actions; no external submission or instructor marks are claimed.
+The implementation, measured evidence and final documents pass the review, and
+the final revision is published to the public GitHub repository. Course details
+and the LMS upload of the repository link remain student actions; no LMS
+submission or instructor marks are claimed.
 
 ## Scope
 
@@ -18,7 +19,7 @@ weights and tracking-store internals were treated as local runtime state.
 
 | Check | Result |
 |---|---|
-| Automated suite | 17 passed; one existing MLflow advisory about optional prediction type hints |
+| Automated suite | 18 passed; one existing MLflow advisory about optional prediction type hints |
 | Original model replay | Both MLflow packages reproduce all 60 saved predictions |
 | Metrics and timing | Four classification metrics independently recomputed; latency arithmetic matches |
 | Registry | Champion/challenger aliases resolve to the exact evaluated run IDs |
@@ -27,6 +28,7 @@ weights and tracking-store internals were treated as local runtime state.
 | Quizzes | All 30 responses match the supplied keys; explanations and student identity present |
 | Fresh execution | Isolated SQLite store, new runs, original local model snapshots; predictions and winner reproduced |
 | Artifact logging fix | Fresh runs each contain the comparison chart and other required artifacts |
+| Fresh clone (19 Nov) | Empty folder and store, README followed exactly; metrics, predictions, aliases and transcript identical |
 | Documents | 23-page lab record and 2-page quiz sheet; all source text survives PDF export |
 | Visual review | Every final PDF page image inspected; no clipping, broken tables or blank pages |
 | Package | Explicit file selection, ZIP integrity check and per-file SHA-256 verification |
@@ -59,8 +61,9 @@ the visually reviewed PDF copies are the submission references.
   both prescribed Project runs; Lab13 records the three lowest-MAE runs.
 - Required repository structure, USN repository name and at least three historical
   commits exist. Saved history is also supplied in outputs/git_history.txt.
-- Two screenshots show the actual MLflow UI. The third is explicitly a rendering
-  of the executed prediction transcript; it is not a native console screenshot.
+- Two screenshots show the actual MLflow UI. The third is a native Windows console
+  capture of predict_from_mlflow.py from the 19 November fresh-clone run; its
+  printed table is identical to outputs/prediction_terminal.txt.
 
 ## Cleanup and fixes in this final review
 
@@ -80,6 +83,26 @@ the visually reviewed PDF copies are the submission references.
   excludes environments, IDE files, caches, model weights, raw stores and previews.
 - Added a submission guide, reproducible package builder, manifest and checksum.
 
+## Fresh-clone re-verification (19 November 2026)
+
+The repository was cloned into an empty folder and README.md was followed with a
+new virtual environment (installed from the lock file) and an empty tracking store.
+evaluate.py reproduced every classification metric (A macro-F1 0.966630, B
+0.794286) and Champion A; predictions_A.csv, predictions_B.csv, disagreements.csv,
+new_data_predictions.csv, registry.json and prediction_terminal.txt were identical
+to the committed files. Only latencies and run IDs differed, as expected. All 18
+tests, verify_submission.py (full model replay) and all 14 lab audits passed.
+outputs/verification.json is from this run.
+
+- Fixed Lab 12 when all labs run in one process: mlflow.set_experiment() in earlier
+  labs leaves MLFLOW_EXPERIMENT_ID in the environment, so the Project subprocess
+  conflicted with its experiment name and failed. run_labs.py now removes that
+  variable for the Project runs; a regression test reproduces the failure.
+- Documented that run_labs.py must run once per tracking store; a second run
+  duplicates Lab05 runs and the Lab 13 ranking audit correctly rejects the store.
+- Replaced the transcript rendering with a native console screenshot.
+  capture_evidence.py now writes its optional rendering to a git-ignored file.
+
 Earlier fixes remain in place: pinned model revisions, strict input validation,
 metric/artifact/alias checks, quiz-key transcription checks and stable line endings.
 The original rule, evaluation labels, measured results and historical commits were
@@ -88,12 +111,9 @@ not changed. The required AI-use declaration is retained.
 ## Remaining submission steps
 
 1. Fill the official course title and course code on the cover.
-2. Add a native screenshot of predict_from_mlflow.py running successfully; this
-   session cannot capture it because the Computer Use native pipe is unavailable.
-3. Publish the final local revision to the existing GitHub repository and give the
-   instructor access if it stays private. This review did not push any changes.
-4. Submit the repository link at the correct LMS assignment and keep the receipt.
-5. Review the implementation and quiz explanations for the viva.
+2. Submit the public repository link at the correct LMS assignment and keep the
+   receipt.
+3. Review the implementation and quiz explanations for the viva.
 
 The original starter scripts were not supplied. The general regression baseline
 is a disclosed synthetic replacement; the delivery and hospital tables reproduce

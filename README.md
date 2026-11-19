@@ -56,6 +56,8 @@ The setup above creates the environment on a fresh clone. It was tested on
 Windows with CPython 3.13. Both Hub model revisions are pinned in config.py to
 the exact commits recorded in outputs/metrics_summary.json. The lock file is
 the executed environment snapshot; verification does not rewrite it.
+Run `run_labs.py` once per tracking store. Running it again on the same store
+creates duplicate lab runs, and the Lab 13 audit check then rejects the store.
 
 The submitted ZIP contains saved results, source and documents. Tracking databases
 and model weights are intentionally excluded, as required by the brief. On another
@@ -101,10 +103,10 @@ against their supplied keys. No instructor marks are claimed.
 
 ## Submission
 
-Repository: [1MS25CI051-mlflow-champion-challenger](https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger) (private).
-This final revision is prepared locally; it has not been pushed or submitted to
-the LMS. Instructor access and LMS submission remain to be completed. Current
-state is recorded in `submission_status.json` and `SUBMISSION_GUIDE.md`.
+Repository: [1MS25CI051-mlflow-champion-challenger](https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger) (public).
+The final revision is published to this repository. The LMS submission of the
+repository link remains for the student. Current state is recorded in
+`submission_status.json` and `SUBMISSION_GUIDE.md`.
 
 Use repository name `<USN>-mlflow-champion-challenger`. Commit source/data/outputs
 but exclude `.venv`, model weights, tracking databases, `mlruns` and `mlartifacts`.
@@ -118,8 +120,7 @@ output excerpts. Full transcripts and tables are under `outputs/labs/`.
 `outputs/verification.json` records full evaluation replay for both MLflow models,
 metric recalculation and registry checks. Run pytest for the current test count.
 The three screenshot files are under `screenshots/`; the prediction image is a
-clearly labeled rendering of the verbatim terminal transcript. Capture the native
-terminal window as well if that format is required by your instructor.
+native console capture whose output is identical to the saved transcript.
 Source, data and measured evidence have at least three local Git commits. The
 initial commit preserves the Champion rule before the completed evaluation.
 
@@ -150,7 +151,11 @@ The document renderer maps the Word content to local HTML and uses an isolated
 headless Microsoft Edge process to export PDFs. It checks that every source text
 block survives PDF export, then creates page PNGs for visual review. It does not
 upload document content. Live model verification and the isolated fresh-run check
-passed on 13 November 2026; all 17 tests and all fourteen lab checks passed.
+passed on 13 November 2026. On 19 November 2026 a fresh clone followed this README
+from an empty tracking store: all four classification metrics, every saved
+prediction, the disagreements table, the registry aliases and the inference
+transcript matched the committed evidence exactly (only latencies and run IDs
+differ). All 18 tests, `verify_submission.py` and all fourteen lab audits passed.
 
 ## Audit
 

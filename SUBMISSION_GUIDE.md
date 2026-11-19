@@ -1,7 +1,7 @@
 ﻿# Final submission guide
 
 Student: HARSHA BS | USN: 1MS25CI051 | Section: A
-Prepared: 13 November 2026
+Prepared: 13 November 2026 | Re-verified from a fresh clone: 19 November 2026
 
 ## Files to use
 
@@ -21,37 +21,49 @@ blank because official values were not supplied.
 
 ## Before uploading
 
-1. Fill the official course title/code. For regenerated copies, edit student.json,
-   run build_documents.py and render_documents.py, and review the page images.
-2. Add a native terminal screenshot showing successful prediction. The existing
-   prediction_terminal.png is clearly labeled as a rendering of the actual saved
-   transcript. Native screenshot capture is unavailable in this session.
-3. Rerun make_submission.py after edits so the ZIP and manifest include them.
-4. Push the final local revision to the existing repository and grant instructor
-   access if it remains private. No push was performed during this review.
-5. Submit the repository link at the LMS assignment and save the receipt. The
+1. Fill the official course title/code. The cover fields are blank so they can be
+   written by hand. For regenerated copies, edit student.json, run
+   build_documents.py and render_documents.py, and review the page images.
+2. Rerun make_submission.py after any edits so the ZIP and manifest include them,
+   then commit and push.
+3. Submit the repository link at the LMS assignment and save the receipt. The
    assignment specifies a GitHub repository link; the ZIP is a supporting archive.
+
+The repository is public and the final revision is pushed, so no separate
+instructor access is needed. screenshots/prediction_terminal.png is a native
+console capture of the Champion inference.
 
 Repository: https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger
 
 ## What was checked
 
-17 automated tests pass. Both original MLflow models reproduce all 60 saved
-predictions; the Champion alias reproduces the eight new predictions. All 14 lab
-audits pass. An isolated fresh evaluation using the original exported local model
-snapshots reproduced both prediction sequences and the Champion decision, and
-confirmed complete candidate artifacts. First-time Hub download availability was
-not retested. All 25 final PDF pages were visually reviewed.
+On 13 November 2026 both original MLflow models reproduced all 60 saved
+predictions, the Champion alias reproduced the eight new predictions and all 14
+lab audits passed. An isolated fresh evaluation using the original exported local
+model snapshots reproduced both prediction sequences and the Champion decision.
+
+On 19 November 2026 the repository was cloned into an empty folder and README.md
+was followed exactly: new virtual environment from the lock file, new tracking
+store, evaluate.py, register_champion.py, predict_from_mlflow.py and run_labs.py.
+All classification metrics (A macro-F1 0.966630, B 0.794286), both prediction
+files, the disagreements table, the aliases (champion v1 = A, challenger v2 = B)
+and the eight-row inference transcript matched the committed evidence exactly;
+only latencies and run IDs differ. All 18 tests, verify_submission.py and all 14
+lab audits passed. This run found and fixed a Lab 12 bug: when every lab runs in
+one process, MLflow left MLFLOW_EXPERIMENT_ID set and the Project runs were
+rejected; run_labs.py now clears it and a regression test covers it.
 
 ## Recreate on another computer
 
 Extract the archive and follow README.md in order. The assignment excludes
 tracking databases and model weights from submission, so a fresh machine must
 install dependencies and execute evaluate.py, register_champion.py,
-predict_from_mlflow.py and run_labs.py before live verification. Existing run IDs
+predict_from_mlflow.py and run_labs.py before live verification. Run run_labs.py
+once per tracking store; a second run duplicates the lab runs. Existing run IDs
 in saved evidence refer to the original local tracking store.
 
 The ZIP excludes .venv, .idea, .git, caches, model weights, mlruns, mlartifacts,
-databases and preview images. Keep the existing local tracking database and model
-artifacts on this computer for the viva. The manifest lets the instructor verify
-the included files without needing the local runtime.
+databases and preview images. For a live demonstration in the viva, use a
+tracking store produced by following README.md (under ten minutes on CPU once the
+models are cached). The manifest lets the instructor verify the included files
+without needing the local runtime.
