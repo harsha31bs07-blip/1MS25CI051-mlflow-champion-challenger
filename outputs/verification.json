@@ -1,4 +1,6 @@
 {
+  "checked_at_utc": "2026-11-13T14:08:16.726135+00:00",
+  "status": "passed",
   "checks": [
     "A: inputs, all classification metrics, latency arithmetic, parameters, artifacts, pinned revision and full model replay passed",
     "B: inputs, all classification metrics, latency arithmetic, parameters, artifacts, pinned revision and full model replay passed",
@@ -9,10 +11,10 @@
     "Both supplied quizzes have 15 completed responses with explanations"
   ],
   "remaining_student_actions": [
-    "Confirm course title and course code",
+    "Fill course title and course code on the cover page",
     "Provide LMS assignment URL for submission",
-    "Provide instructor GitHub username for private-repository access or choose public visibility",
-    "Capture the native PyCharm terminal window: the desktop screenshot helper is unavailable",
+    "Give instructor access to the private repository",
+    "Add a native terminal screenshot; the included image is a labeled transcript rendering",
     "Review implementation and quiz explanations for viva"
   ]
 }

@@ -1,6 +1,7 @@
 """Audit recorded results against data, reloadable models and live registry."""
 import hashlib
 import json
+from datetime import datetime, timezone
 import mlflow
 import pandas as pd
 import torch
@@ -75,10 +76,10 @@ def main():
     quizzes = json.loads((ROOT / 'quiz_answers.json').read_text())
     assert len(quizzes['day_1']) == len(quizzes['day_2']) == 15
     checks += ['Student identity verified in live MLflow tags', 'Both supplied quizzes have 15 completed responses with explanations']
-    report = {'checks': checks, 'remaining_student_actions': ['Confirm course title and course code', 'Provide LMS assignment URL for submission', 'Provide instructor GitHub username for private-repository access or choose public visibility', 'Capture the native PyCharm terminal window: the desktop screenshot helper is unavailable', 'Review implementation and quiz explanations for viva']}
-    (OUTPUTS / 'verification.json').write_text(json.dumps(report, indent=2))
     for filename in ['mlflow_compare.png', 'registry_aliases.png', 'prediction_terminal.png']:
         assert (ROOT / 'screenshots' / filename).exists()
+    report = {'checked_at_utc': datetime.now(timezone.utc).isoformat(), 'status': 'passed', 'checks': checks, 'remaining_student_actions': ['Fill course title and course code on the cover page', 'Submit the public GitHub repository link on the LMS and keep the receipt', 'Review implementation and quiz explanations for viva']}
+    (OUTPUTS / 'verification.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     print(json.dumps(report, indent=2))
 
 

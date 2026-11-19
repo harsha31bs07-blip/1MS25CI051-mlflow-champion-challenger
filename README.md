@@ -3,7 +3,7 @@
 Student name: HARSHA BS  
 USN: 1MS25CI051  
 Section: A  
-Course title/code: pending student confirmation.
+Course title/code: blank on the record cover; fill in the official course details.
 
 ## Task and models
 
@@ -28,7 +28,7 @@ README and the input data is logged with every comparison.
 ## How to run (PowerShell, from repository root)
 
 ```powershell
-py -3.13 -m venv .venv
+py -3.13 -m venv .venv   # or: python -m venv .venv (if the py launcher is not installed)
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt -c requirements-lock.txt
 $env:STUDENT_USN = '1MS25CI051'
 .\.venv\Scripts\python.exe -m mlflow server --host 127.0.0.1 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlartifacts
@@ -43,6 +43,8 @@ $env:MLFLOW_TRACKING_URI = 'http://127.0.0.1:5000'
 .\.venv\Scripts\python.exe predict_from_mlflow.py
 .\.venv\Scripts\python.exe run_labs.py
 .\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe verify_submission.py
+.\.venv\Scripts\python.exe audit_labs.py
 ```
 
 First downloads need Internet; saved MLflow models bundle tokenizer and weights
@@ -54,6 +56,14 @@ The setup above creates the environment on a fresh clone. It was tested on
 Windows with CPython 3.13. Both Hub model revisions are pinned in config.py to
 the exact commits recorded in outputs/metrics_summary.json. The lock file is
 the executed environment snapshot; verification does not rewrite it.
+
+The submitted ZIP contains saved results, source and documents. Tracking databases
+and model weights are intentionally excluded, as required by the brief. On another
+machine, run the commands above in order to recreate the tracking store and model
+versions before live verification. Historical run IDs in the saved evidence refer
+to the original execution. First-time Hub model downloads require network access.
+Optional `--alias challenger` inference saves separate files with `_challenger`
+in their names and preserves the Champion's evidence.
 
 ## Results table and decision
 
@@ -81,7 +91,8 @@ population. Scores may reflect dataset construction and pretrained training over
 cannot be ruled out. CPU timing varies with machine load and batching; it is not a
 production benchmark. Confidence scores are not calibrated probabilities. Both
 models may miss sarcasm, context or domain-specific language. No test data is used
-for training or threshold selection. AI assistance (OpenAI Codex) was used to read
+for training or threshold selection. AI assistance (OpenAI Codex, and Anthropic Claude
+for the final verification review) was used to read
 requirements, author data, implement code, debug and write explanations. The student
 must review and understand every line and explain the choices in
 the viva. The two subsequently supplied quiz documents are answered in
@@ -91,8 +102,9 @@ against their supplied keys. No instructor marks are claimed.
 ## Submission
 
 Repository: [1MS25CI051-mlflow-champion-challenger](https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger) (private).
-Instructor access and LMS submission await the student's destination details.
-Current state is recorded in `submission_status.json`.
+This final revision is prepared locally; it has not been pushed or submitted to
+the LMS. Instructor access and LMS submission remain to be completed. Current
+state is recorded in `submission_status.json` and `SUBMISSION_GUIDE.md`.
 
 Use repository name `<USN>-mlflow-champion-challenger`. Commit source/data/outputs
 but exclude `.venv`, model weights, tracking databases, `mlruns` and `mlartifacts`.
@@ -110,6 +122,35 @@ clearly labeled rendering of the verbatim terminal transcript. Capture the nativ
 terminal window as well if that format is required by your instructor.
 Source, data and measured evidence have at least three local Git commits. The
 initial commit preserves the Champion rule before the completed evaluation.
+
+## Final documents and archive
+
+The final record contains 23 pages covering the mini-project, all fourteen labs,
+both quizzes, the assessment table and limitations. The separate quiz sheet has
+two pages. Each has an editable DOCX and a PDF. The PDFs are the visually reviewed
+submission copies; DOCX pagination can vary between office applications.
+
+`Submission.zip` contains the documents, executable source, data, evidence,
+original references, tests and a SHA-256 file manifest. Its checksum is in
+`Submission.sha256`. Virtual environments, IDE files, caches, raw tracking stores,
+model weights and document previews are excluded. See `SUBMISSION_GUIDE.md` for
+the last steps before uploading.
+
+To rebuild after changing student.json or saved evidence:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-evidence.txt
+.\.venv\Scripts\python.exe build_documents.py
+.\.venv\Scripts\python.exe render_documents.py
+# Review every page image under outputs/final-qa/ before packaging.
+.\.venv\Scripts\python.exe make_submission.py
+```
+
+The document renderer maps the Word content to local HTML and uses an isolated
+headless Microsoft Edge process to export PDFs. It checks that every source text
+block survives PDF export, then creates page PNGs for visual review. It does not
+upload document content. Live model verification and the isolated fresh-run check
+passed on 13 November 2026; all 17 tests and all fourteen lab checks passed.
 
 ## Audit
 

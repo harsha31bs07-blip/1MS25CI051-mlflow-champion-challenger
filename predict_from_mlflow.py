@@ -22,8 +22,9 @@ def main():
     text = f'Loaded {uri}\nVersion: {version.version}\nHugging Face model: {version.tags["hf_model_id"]}\n\n' + predictions.to_string(index=False)
     print(text)
     OUTPUTS.mkdir(exist_ok=True)
-    predictions.to_csv(OUTPUTS / 'new_data_predictions.csv', index=False)
-    (OUTPUTS / 'prediction_terminal.txt').write_text(text, encoding='utf-8')
+    suffix = '' if args.alias == 'champion' else '_challenger'
+    predictions.to_csv(OUTPUTS / f'new_data_predictions{suffix}.csv', index=False)
+    (OUTPUTS / f'prediction_terminal{suffix}.txt').write_text(text, encoding='utf-8')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-11-13T14:02:10.217353+00:00",
+  "status": "passed",
+  "environment": "isolated SQLite store; original locally exported Hugging Face weights; CPU; no Hub download",
+  "checks": [
+    "Fresh evaluation created new runs and outputs in an isolated store",
+    "Both candidate runs contain the comparison chart and required artifacts",
+    "Both prediction sequences reproduce the original evidence",
+    "Champion rule again retains model A",
+    "Summary artifacts exclude lab stores and document previews"
+  ],
+  "original_measurements_preserved": true,
+  "limitation": "Hub download was not retested; the original exported model snapshots were supplied to the pipeline for offline execution."
+}

@@ -139,7 +139,17 @@ def main():
         pre, tail = text.split('<!-- RESULTS_START -->')
         _, post = tail.split('<!-- RESULTS_END -->')
         (ROOT / 'README.md').write_text(pre + '<!-- RESULTS_START -->\n' + result + '\n<!-- RESULTS_END -->' + post, encoding='utf-8')
-        mlflow.log_artifacts(str(OUTPUTS), artifact_path='comparison')
+        # The comparison is created after both child runs have closed. Attach it
+        # explicitly to each run so a fresh execution has complete evidence.
+        client = mlflow.MlflowClient()
+        for entry in manifest['models'].values():
+            client.log_artifact(entry['run_id'], str(OUTPUTS / 'comparison.png'))
+        # Log only evidence created by this comparison, never stale lab stores,
+        # document previews or a previous submission archive under outputs/.
+        for filename in ['comparison.png', 'disagreements.csv', 'metrics_summary.json', 'results.md']:
+            mlflow.log_artifact(str(OUTPUTS / filename), artifact_path='comparison')
+        for role in ['A', 'B']:
+            mlflow.log_artifacts(str(OUTPUTS / role), artifact_path=f'comparison/{role}')
         mlflow.log_artifact(str(ROOT / 'README.md'))
         print(result, flush=True)
 

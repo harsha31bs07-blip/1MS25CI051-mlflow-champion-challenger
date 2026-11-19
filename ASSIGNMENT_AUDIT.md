@@ -1,103 +1,101 @@
-# Assignment audit
+﻿# Final assignment audit
 
-Audit date: 10 November 2026. Student: HARSHA BS, 1MS25CI051, Section A.
+Review date: 13 November 2026. Student: HARSHA BS, 1MS25CI051, Section A.
 
-The implementation and saved evidence pass the checks below. The submission is
-not yet fully ready for an instructor: course details, instructor access/LMS
-submission, and a native terminal screenshot remain unresolved.
+The local implementation, measured evidence and final documents pass the review.
+The submission package is prepared locally. Course details, a native terminal
+screenshot, instructor access to the private repository and the LMS upload remain
+student actions; no external submission or instructor marks are claimed.
 
-## Scope and sources
+## Scope
 
-Reviewed both original assignment briefs, both subsequently supplied quiz/key
-documents, source and helper scripts, tests, dependency files, datasets, recorded
-CSV/JSON/text outputs, generated Word records, screenshots, Git tracking rules,
-local history and the published repository revision. Local caches, installed
-third-party packages and tracking-store internals are runtime dependencies rather
-than student-authored submission source.
+Reviewed both original briefs, both supplied quiz keys, all project and lab source,
+all tests, dependencies, data, saved outputs, registry/model evidence, screenshots,
+Git history and generated documents. Third-party installed packages, cached model
+weights and tracking-store internals were treated as local runtime state.
 
-The independent checks are reproducible:
+## Validation
 
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe verify_submission.py
-.\.venv\Scripts\python.exe audit_labs.py
-```
-
-At this audit, pytest passes 15 tests. Verification reloads both actual MLflow
-models and the Champion alias; it does not train replacement models, relog
-artifacts, change aliases or rewrite the dependency snapshot. Its only output
-mutation is the local verification report. The lab audit similarly writes only
-its local report.
-
-## Mini-project requirements
-
-|Requirement|Evidence and result|
+| Check | Result |
 |---|---|
-|Two models on identical saved inputs|Both prediction files preserve all 60 input texts and references in order; data hash matches the recorded evaluation.|
-|Reproducibility|Seed, CPU device, batch size and maximum length recorded. Exact Hub revisions now pinned to the revisions used in the existing evaluation. Executed environment is retained in requirements-lock.txt.|
-|Required three run names|Live tracking confirms both A/B sentiment runs and compare_sentiment, all FINISHED.|
-|Parameters, metrics and tags|Required parameters and tags present. All four classification metrics independently recomputed; logged values and elapsed-time arithmetic checked. Student USN verified.|
-|Rule declared before results|Initial Git commit preserves the 0.01 macro-F1 improvement margin and 5x latency guardrail. Those rule values are unchanged and agree with the saved manifest.|
-|Correct decision|A retained: macro-F1 0.966630 versus B 0.794286. Winner and summary delta match the rule.|
-|Registry aliases|Both aliases resolve to the exact evaluated run IDs, not merely matching A/B labels.|
-|Logged artifacts|Prediction CSVs, references, metrics, README, requirements, confusion matrix and comparison chart verified in each candidate run.|
-|Qualitative examples|12 disagreements saved; six specific comments in qualitative_analysis.csv, including a case where B is correct.|
-|New-data inference|Eight disjoint inputs; saved text/IDs, model ID and version checked. Prediction replay through the Champion alias matches saved output. The script imports no Hugging Face pipeline.|
-|Decision explanation|The saved explanation is within the required 150–250 words and discusses sample size and quality/speed trade-offs.|
-|Repository structure and history|Required scripts/data/output folders present; at least three real commits precede this audit. No database, model weights or raw tracking-store paths are tracked in Git.|
-|Screenshots|Comparison and registry images are genuine MLflow captures. The prediction image remains a labeled transcript rendering; a native terminal-window capture is still missing.|
+| Automated suite | 17 passed; one existing MLflow advisory about optional prediction type hints |
+| Original model replay | Both MLflow packages reproduce all 60 saved predictions |
+| Metrics and timing | Four classification metrics independently recomputed; latency arithmetic matches |
+| Registry | Champion/challenger aliases resolve to the exact evaluated run IDs |
+| New data | Eight disjoint examples reproduced through the Champion alias |
+| Lab evidence | All 14 exercise audits pass, including recomputed regression metrics and model reload |
+| Quizzes | All 30 responses match the supplied keys; explanations and student identity present |
+| Fresh execution | Isolated SQLite store, new runs, original local model snapshots; predictions and winner reproduced |
+| Artifact logging fix | Fresh runs each contain the comparison chart and other required artifacts |
+| Documents | 23-page lab record and 2-page quiz sheet; all source text survives PDF export |
+| Visual review | Every final PDF page image inspected; no clipping, broken tables or blank pages |
+| Package | Explicit file selection, ZIP integrity check and per-file SHA-256 verification |
 
-## Labs and quizzes
+The fresh-run check used the previously exported local Hugging Face weights to
+avoid repeating Hub downloads. Hub download availability was not retested. The
+original measurements and aliases were preserved. Fresh-run latencies differ
+with system load and were not substituted into the submitted results table.
 
-All 14 lab branches have recorded execution evidence. `outputs/lab_audit.json`
-records the checks for each lab. These include recomputation of the six Lab01
-splits and nine Lab05 comparisons, exact hospital-table predictions, automatic
-versus manual logging evidence, shared-server runs, sklearn model reload,
-registry winner, both prescribed MLflow Project runs, top-three ranking and CLI
-output. Lab01 CSV membership now includes an explicit dataset column alongside
-execution, seed, test size, row ID and split; the workbook contains six sheets.
+PDFs were generated from the DOCX content via local HTML and headless Microsoft
+Edge, then rasterized for review. The packaged LibreOffice renderer was unavailable
+and Word PDF export stalled. DOCX pagination can vary between office applications;
+the visually reviewed PDF copies are the submission references.
 
-All 30 quiz responses match the supplied answer keys. Generated response sheets
-contain the supplied student identity. These are completed response sheets, not
-evidence of an instructor-awarded score.
+## Requirement review
 
-The instructor's original starter scripts were not provided. The generic
-regression baseline is a declared synthetic replacement, while the delivery and
-hospital tables reproduce the brief. Quiz questions about particular teaching
-scripts follow their supplied answer keys. Exact equivalence to those missing
-scripts cannot be independently verified; provide them if exact matching is
-required by the instructor.
+- Same 60 saved inputs and references in the same order for both models; balanced
+  intended labels and data hash verified. Both Hub IDs and exact revisions saved.
+- Required A_sentiment, B_sentiment and compare_sentiment run names, parameters,
+  metrics, tags, FINISHED statuses, model packages and artifacts verified.
+- Initial Git history preserves the original 0.01 macro-F1 margin and 5x latency
+  guardrail. The policy is unchanged. A remains Champion at 0.966630 macro-F1
+  against B at 0.794286. The explanation is within 150 to 250 words.
+- Both aliases select the correct versions. Inference loads the Champion alias,
+  prints its version and model ID, and imports no Hugging Face pipeline.
+- Two confusion matrices and a complete metric comparison plot are included.
+  Twelve disagreements and six specific qualitative comments are preserved.
+- All fourteen labs contain saved transcripts and exercise outputs. Lab01 includes
+  six workbook sheets and an explicit dataset/split membership CSV. Lab12 records
+  both prescribed Project runs; Lab13 records the three lowest-MAE runs.
+- Required repository structure, USN repository name and at least three historical
+  commits exist. Saved history is also supplied in outputs/git_history.txt.
+- Two screenshots show the actual MLflow UI. The third is explicitly a rendering
+  of the executed prediction transcript; it is not a native console screenshot.
 
-## Fixes made during this audit
+## Cleanup and fixes in this final review
 
-- Added a fresh-clone virtual-environment setup command and dependency constraints.
-- Pinned both Hugging Face models to their already recorded source revisions.
-- Reject missing columns, blank/non-string inputs, duplicate IDs/text and
-  evaluation/new-data overlap after whitespace/case normalization.
-- Strengthened checks for all metrics, artifacts, summary fields, exact registry
-  run IDs and saved prediction versions; verification is now read-only on MLflow.
-- Added direct quiz-key transcription tests and generated-document identity checks.
-- Added explicit dataset membership to the Lab01 CSV/workbook and checked it.
-- Added consistent Git line endings for data and source files.
+- Fixed evaluate.py so a fresh comparison logs its chart to both candidate runs.
+- Restricted summary artifact logging to files created by the current comparison;
+  stale lab stores, document previews and unrelated outputs are no longer swept in.
+- Preserved Champion evidence when optional Challenger inference is requested.
+- Propagated the active tracking URI to Projects and CLI subprocesses.
+- Added regression checks for Challenger evidence isolation and CLI server routing.
+- Restricted pytest discovery to tests/ and converted the validation transcript
+  to UTF-8 after the extracted-copy check caught it being collected as a doctest.
+- Rebuilt documents with student details, blank official course fields, an unfilled
+  assessment/signature table, code/output excerpts, plots and both quiz answers.
+- Replaced the document-specific npm dependency with the existing Python evidence
+  toolchain, keeping build_record.cjs as a compatibility entry point.
+- Removed obsolete one-off identity and document-preview helpers. The packager
+  excludes environments, IDE files, caches, model weights, raw stores and previews.
+- Added a submission guide, reproducible package builder, manifest and checksum.
 
-No measured scores, decision rule, evaluation labels or historical commits were
-altered. The AI-use declaration is retained. Ground rule 4 in the supplied brief
-states: “If you use an AI assistant, say so in your README and be ready to explain
-every line in a viva.” Removing that declaration would make this submission less
-compliant with the assignment.
+Earlier fixes remain in place: pinned model revisions, strict input validation,
+metric/artifact/alias checks, quiz-key transcription checks and stable line endings.
+The original rule, evaluation labels, measured results and historical commits were
+not changed. The required AI-use declaration is retained.
 
-## Outstanding actions
+## Remaining submission steps
 
-1. Confirm course title and code; these remain explicitly pending.
-2. Supply a native screenshot of the successfully executed PyCharm terminal.
-   Desktop capture previously failed because its native helper was unavailable.
-3. Give the instructor access to the private GitHub repository or choose public
-   visibility; no instructor username has been supplied.
-4. Submit the repository link at the correct LMS assignment. No LMS URL or
-   submission receipt has been supplied.
-5. Review the code and results for the viva. Supply missing teaching scripts if
-   the instructor requires their exact implementation rather than equivalents.
+1. Fill the official course title and course code on the cover.
+2. Add a native screenshot of predict_from_mlflow.py running successfully; this
+   session cannot capture it because the Computer Use native pipe is unavailable.
+3. Publish the final local revision to the existing GitHub repository and give the
+   instructor access if it stays private. This review did not push any changes.
+4. Submit the repository link at the correct LMS assignment and keep the receipt.
+5. Review the implementation and quiz explanations for the viva.
 
-The audit fixes are local. The GitHub repository's pre-audit published revision
-was verified as d371ee925772680d12eaba7314164ae63fc84f67; this audit has not
-published a new revision or submitted to the LMS.
+The original starter scripts were not supplied. The general regression baseline
+is a disclosed synthetic replacement; the delivery and hospital tables reproduce
+the brief. Exact equivalence to missing teaching scripts cannot be established.
+The supplied answer keys govern quiz questions about those missing scripts.

@@ -64,3 +64,39 @@ def test_saved_lab_completion_and_ranking():
     assert all((ROOT / f'outputs/labs/lab_{n:02}/terminal.txt').exists() for n in range(1,15))
     top = pd.read_csv(ROOT / 'outputs/labs/lab_13/top_three.csv')
     assert len(top) == 3 and top.mae.is_monotonic_increasing
+
+
+def test_challenger_inference_preserves_champion_evidence(tmp_path, monkeypatch):
+    import sys
+    from types import SimpleNamespace
+    import predict_from_mlflow as predictor
+
+    champion = tmp_path / 'new_data_predictions.csv'
+    champion.write_text('original champion evidence', encoding='utf-8')
+    version = SimpleNamespace(version='2', tags={'hf_model_id': 'test-challenger'})
+    monkeypatch.setattr(predictor, 'OUTPUTS', tmp_path)
+    monkeypatch.setattr(predictor, 'MlflowClient', lambda: SimpleNamespace(get_model_version_by_alias=lambda *a: version))
+    monkeypatch.setattr(predictor.mlflow.pyfunc, 'load_model', lambda uri: SimpleNamespace(
+        predict=lambda frame: frame.assign(prediction='POSITIVE', confidence=.9).reset_index(drop=True)))
+    monkeypatch.setattr(sys, 'argv', ['predict_from_mlflow.py', '--alias', 'challenger'])
+    predictor.main()
+    assert champion.read_text(encoding='utf-8') == 'original champion evidence'
+    saved = pd.read_csv(tmp_path / 'new_data_predictions_challenger.csv')
+    assert len(saved) == 8 and set(saved.hf_model_id) == {'test-challenger'}
+    assert 'models:/sentiment-model@challenger' in (tmp_path / 'prediction_terminal_challenger.txt').read_text()
+
+
+def test_cli_uses_configured_server_without_environment(tmp_path, monkeypatch):
+    import run_labs
+    from types import SimpleNamespace
+
+    monkeypatch.delenv('MLFLOW_TRACKING_URI', raising=False)
+    monkeypatch.setattr(run_labs, 'LABOUT', tmp_path)
+    monkeypatch.setattr(run_labs.mlflow, 'get_tracking_uri', lambda: 'http://127.0.0.1:5123')
+    calls = []
+    def run(command, **kwargs):
+        calls.append(kwargs['env']['MLFLOW_TRACKING_URI'])
+        return SimpleNamespace(stdout='verified CLI output')
+    monkeypatch.setattr(run_labs.subprocess, 'run', run)
+    run_labs.run_lab(14)
+    assert calls == ['http://127.0.0.1:5123'] * 3

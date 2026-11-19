@@ -57,8 +57,11 @@ its prediction entry point reads the saved model URI from that execution.
 To regenerate the completed Word record after executing all labs:
 
 ```powershell
-npm install --prefix .artifact-tools docx
-node build_record.cjs
+.\.venv\Scripts\python.exe -m pip install -r requirements-evidence.txt
+.\.venv\Scripts\python.exe build_documents.py
+.\.venv\Scripts\python.exe render_documents.py
 ```
 
 The original briefs are preserved. The generated record is a separate deliverable.
+The renderer creates PDF copies and page images under outputs/final-qa/ for review.
+The existing node build_record.cjs command remains a compatibility entry point.

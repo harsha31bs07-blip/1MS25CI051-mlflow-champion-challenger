@@ -185,7 +185,7 @@ def run_lab(number, intercept=None):
     elif number == 12:
         print((ROOT / 'labs/lab_12/MLproject').read_text())
         for size in ['0.25', '0.40']:
-            env = {**os.environ, 'MLFLOW_EXPERIMENT_NAME': 'Lab12-Projects', 'PATH': str(Path(sys.executable).parent) + os.pathsep + os.environ['PATH']}
+            env = {**os.environ, 'MLFLOW_TRACKING_URI': mlflow.get_tracking_uri(), 'MLFLOW_EXPERIMENT_NAME': 'Lab12-Projects', 'PATH': str(Path(sys.executable).parent) + os.pathsep + os.environ['PATH']}
             result = subprocess.run([sys.executable, '-m', 'mlflow', 'run', str(ROOT / 'labs/lab_12'), '--env-manager', 'local', '-P', f'test_size={size}', '-P', 'random_state=7'], env=env, capture_output=True, text=True, encoding='utf-8')
             print(result.stdout, result.stderr)
             if result.returncode:
@@ -201,7 +201,7 @@ def run_lab(number, intercept=None):
         print(pd.DataFrame(rows).to_string(index=False))
     elif number == 14:
         for command in [['--version'], ['--help'], ['experiments', 'search']]:
-            result = subprocess.run([sys.executable, '-m', 'mlflow', *command], check=True, capture_output=True, text=True)
+            result = subprocess.run([sys.executable, '-m', 'mlflow', *command], check=True, capture_output=True, text=True, encoding='utf-8', env={**os.environ, 'MLFLOW_TRACKING_URI': mlflow.get_tracking_uri()})
             print(result.stdout)
     else:
         raise ValueError('Lab number must be 1 through 14')

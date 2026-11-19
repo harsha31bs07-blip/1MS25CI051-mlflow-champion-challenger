@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-11-13T14:11:44.543740+00:00",
+  "status": "passed",
+  "zip_integrity": "passed",
+  "per_file_sha256": "passed",
+  "python_sources_parsed": 32,
+  "tests_in_extracted_archive": 17,
+  "warnings": "One MLflow advisory about optional prediction type hints",
+  "excluded_content": [
+    "virtual environment",
+    "IDE metadata",
+    "Git metadata",
+    "caches",
+    "tracking databases",
+    "raw tracking stores",
+    "model weights",
+    "preview images"
+  ],
+  "administrative_steps": "See SUBMISSION_GUIDE.md"
+}

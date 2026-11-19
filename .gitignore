@@ -15,3 +15,8 @@ outputs/document-preview/
 Submission.zip
 screenshots/debug_home.png
 screenshots/prediction_transcript.png
+outputs/final-qa/
+outputs/package-check/
+*.zip
+*.zip.tmp
+~$*
