@@ -185,7 +185,10 @@ def run_lab(number, intercept=None):
     elif number == 12:
         print((ROOT / 'labs/lab_12/MLproject').read_text())
         for size in ['0.25', '0.40']:
-            env = {**os.environ, 'MLFLOW_TRACKING_URI': mlflow.get_tracking_uri(), 'MLFLOW_EXPERIMENT_NAME': 'Lab12-Projects', 'PATH': str(Path(sys.executable).parent) + os.pathsep + os.environ['PATH']}
+            # mlflow.set_experiment() in earlier labs exports MLFLOW_EXPERIMENT_ID;
+            # `mlflow run` rejects it alongside MLFLOW_EXPERIMENT_NAME, so drop it.
+            env = {k: v for k, v in os.environ.items() if k != 'MLFLOW_EXPERIMENT_ID'}
+            env.update({'MLFLOW_TRACKING_URI': mlflow.get_tracking_uri(), 'MLFLOW_EXPERIMENT_NAME': 'Lab12-Projects', 'PATH': str(Path(sys.executable).parent) + os.pathsep + os.environ['PATH']})
             result = subprocess.run([sys.executable, '-m', 'mlflow', 'run', str(ROOT / 'labs/lab_12'), '--env-manager', 'local', '-P', f'test_size={size}', '-P', 'random_state=7'], env=env, capture_output=True, text=True, encoding='utf-8')
             print(result.stdout, result.stderr)
             if result.returncode:

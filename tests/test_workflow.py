@@ -100,3 +100,21 @@ def test_cli_uses_configured_server_without_environment(tmp_path, monkeypatch):
     monkeypatch.setattr(run_labs.subprocess, 'run', run)
     run_labs.run_lab(14)
     assert calls == ['http://127.0.0.1:5123'] * 3
+
+
+def test_project_run_ignores_experiment_id_left_by_earlier_labs(tmp_path, monkeypatch):
+    import run_labs
+    from types import SimpleNamespace
+
+    # MLflow's set_experiment() exports this when all labs run in one process.
+    monkeypatch.setenv('MLFLOW_EXPERIMENT_ID', '4')
+    monkeypatch.setattr(run_labs, 'LABOUT', tmp_path)
+    monkeypatch.setattr(run_labs.mlflow, 'get_tracking_uri', lambda: 'http://127.0.0.1:5123')
+    envs = []
+    def run(command, **kwargs):
+        envs.append(kwargs['env'])
+        return SimpleNamespace(stdout='', stderr='', returncode=0)
+    monkeypatch.setattr(run_labs.subprocess, 'run', run)
+    run_labs.run_lab(12)
+    assert len(envs) == 2
+    assert all('MLFLOW_EXPERIMENT_ID' not in env and env['MLFLOW_EXPERIMENT_NAME'] == 'Lab12-Projects' for env in envs)
