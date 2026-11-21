@@ -3,7 +3,7 @@
 Student name: HARSHA BS  
 USN: 1MS25CI051  
 Section: A  
-Course title/code: blank on the record cover; fill in the official course details.
+Course: Skill Lab-II (CISL-2)
 
 ## Task and models
 
@@ -104,9 +104,10 @@ against their supplied keys. No instructor marks are claimed.
 ## Submission
 
 Repository: [1MS25CI051-mlflow-champion-challenger](https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger) (public).
-The final revision is published to this repository. The LMS submission of the
-repository link remains for the student. Current state is recorded in
-`submission_status.json` and `SUBMISSION_GUIDE.md`.
+The final revision is published to this repository. On 21 November 2026 the
+repository link was submitted through the class Google Form and the lab book was
+emailed to the instructor. Current state is recorded in `submission_status.json`
+and `SUBMISSION_GUIDE.md`.
 
 Use repository name `<USN>-mlflow-champion-challenger`. Commit source/data/outputs
 but exclude `.venv`, model weights, tracking databases, `mlruns` and `mlartifacts`.

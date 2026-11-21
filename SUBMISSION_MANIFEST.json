@@ -1,5 +1,5 @@
 {
-  "prepared_at_utc": "2026-11-19T12:04:45.708246+00:00",
+  "prepared_at_utc": "2026-11-21T03:38:15.811333+00:00",
   "student_usn": "1MS25CI051",
   "archive": "Submission.zip",
   "scope": "Source, references, measured evidence and final documents; no tracking store or model weights",
@@ -16,8 +16,8 @@
     },
     {
       "path": "ASSIGNMENT_AUDIT.md",
-      "bytes": 7637,
-      "sha256": "25530d4c1807ebb154e8add7818fcdaac1ee1c138080f67d5a128b438709e6e4"
+      "bytes": 7712,
+      "sha256": "f0a52112e188ebfba21a78e9dcfcbfe92f98b013586f255ed5e4eca283010d8c"
     },
     {
       "path": "Assignment Champion\u2013Challenger Model Comparison with Hugging Face and MLflow.docx",
@@ -26,23 +26,23 @@
     },
     {
       "path": "Completed_Lab_Record.docx",
-      "bytes": 575518,
-      "sha256": "7f43b222144695e451ed5d82228bac22e9d694b37490efbc30966122d36af42f"
+      "bytes": 575497,
+      "sha256": "12f1e52cf60c724a308c0e18c8f43f49645b98383be5b1352c2f0d12f0f1e4a1"
     },
     {
       "path": "Completed_Lab_Record.pdf",
-      "bytes": 592938,
-      "sha256": "890bc39b18b8b5223022c93f6b16558fc5931317245a35e3d85fdd9a6f948cc2"
+      "bytes": 592876,
+      "sha256": "7360259145bbb766b3566f0e1d9c97dfbee8c829c5e8edbe3dedc2ac323ce12d"
     },
     {
       "path": "Completed_Quiz_Answers.docx",
       "bytes": 38693,
-      "sha256": "3b726fc9d82f4e77ab6e04429195a41b2dbedc9754ed9d09e21fd526c757cd4e"
+      "sha256": "8186dd76f995d309193ed4d02446baf7c8e907450d8095b96d178765cf12ed47"
     },
     {
       "path": "Completed_Quiz_Answers.pdf",
       "bytes": 56059,
-      "sha256": "98366bda85536568029e5a8c6d99acd0d39656314226690c4bc515f66cf63a1c"
+      "sha256": "9269c6f4b251ecb8012e752388a6c433233cf0cdb86e71fcd941f9b86737be4d"
     },
     {
       "path": "Day_1_MCQs_with_Answer_Key.docx",
@@ -61,13 +61,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 10100,
-      "sha256": "45b966dc159c765366ff68fb6747154c13f4a0fbc978c4bee9d7e85a3ec01cf4"
+      "bytes": 10112,
+      "sha256": "08c0c40388e710676b070892414e5be1ac42e1e8c7b773f984719bb6f4f8ed60"
     },
     {
       "path": "SUBMISSION_GUIDE.md",
-      "bytes": 3746,
-      "sha256": "23f85c0f161688025ff62fb7dd1869b20e3adea3a57c98fad0936495468b8f8e"
+      "bytes": 3673,
+      "sha256": "c3d07442e647db4c32f93cd98c511f9187707e84df7e219318460dee194b601d"
     },
     {
       "path": "audit_labs.py",
@@ -76,8 +76,8 @@
     },
     {
       "path": "build_documents.py",
-      "bytes": 17936,
-      "sha256": "ad7024e655b0ec4c9436aa1ad2a53a37d939e8febced1ecdc696b3bcbaaf3d8a"
+      "bytes": 17873,
+      "sha256": "1b2e3ad672f1e27e14540f7c512452184ee7e02b59aca211774ce9550b45b86e"
     },
     {
       "path": "build_record.cjs",
@@ -272,7 +272,7 @@
     {
       "path": "outputs/document_qa.json",
       "bytes": 818,
-      "sha256": "b8d6e8c02f20065320d396c9207f0bb9b9f9626026599dbe5a953e25889b9d98"
+      "sha256": "163556fff297658b82f649cd2ac574591e0f3f751d64b899bbd4d8e3a730e3a5"
     },
     {
       "path": "outputs/fresh_run_check.json",
@@ -431,8 +431,8 @@
     },
     {
       "path": "outputs/metrics_summary.json",
-      "bytes": 2145,
-      "sha256": "a49b1c1d94fc902594c91b80df3a65447f54104a10fe9812cd74e379e0de878f"
+      "bytes": 2107,
+      "sha256": "15ad3972d115ca4ccbdfd4801250c316208af4a1a4d9469b5a95e46ae8a5be40"
     },
     {
       "path": "outputs/new_data_predictions.csv",
@@ -471,8 +471,8 @@
     },
     {
       "path": "outputs/verification.json",
-      "bytes": 882,
-      "sha256": "52c8c6400aa7c55df439a154c2eae76de8741143dbbf096d246372fcc0fefe73"
+      "bytes": 743,
+      "sha256": "092f0357e587521d506ee7b7cb6f967ee8628a782a34950ff923b9f5eb17f4af"
     },
     {
       "path": "predict_from_mlflow.py",
@@ -541,13 +541,13 @@
     },
     {
       "path": "student.json",
-      "bytes": 166,
-      "sha256": "ae734a4c97aef7778567d6615279b8e666b903ffad19c40656e9abfbd25162e6"
+      "bytes": 128,
+      "sha256": "7ba1d5e3c179c1bf05e9c93cec3a999067c744c0049fc1dea68bb5fca9de3e61"
     },
     {
       "path": "submission_status.json",
-      "bytes": 1214,
-      "sha256": "0d95b417a362ae1049d8b71ff39bebc684e405995add56b68e48bdcb146d4048"
+      "bytes": 1393,
+      "sha256": "50b8f094a04062e9b57b860a9ad06c7a4e7aee0c213b6955d545da863c47461b"
     },
     {
       "path": "tests/test_documents.py",
@@ -561,8 +561,8 @@
     },
     {
       "path": "verify_submission.py",
-      "bytes": 6029,
-      "sha256": "08e30018b59843c3c1ef753f3d3fa59808c930461079fc27a8c21e372188fd6c"
+      "bytes": 5985,
+      "sha256": "98399337ab3be3371561b722a7cb3a145c7d46b5ea88f994e0ac6aaea6ddcb4a"
     }
   ]
 }

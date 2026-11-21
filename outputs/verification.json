@@ -11,8 +11,6 @@
     "Both supplied quizzes have 15 completed responses with explanations"
   ],
   "remaining_student_actions": [
-    "Fill course title and course code on the cover page",
-    "Submit the public GitHub repository link on the LMS and keep the receipt",
     "Review implementation and quiz explanations for viva"
   ]
 }

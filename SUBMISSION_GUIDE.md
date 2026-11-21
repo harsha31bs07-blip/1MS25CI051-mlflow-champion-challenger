@@ -8,7 +8,7 @@ Prepared: 13 November 2026 | Re-verified from a fresh clone: 19 November 2026
 | File | Purpose |
 |---|---|
 | Completed_Lab_Record.pdf | Visually reviewed 23-page record: project, 14 labs, quizzes and assessment table |
-| Completed_Lab_Record.docx | Editable copy for the official course details |
+| Completed_Lab_Record.docx | Editable copy of the lab record |
 | Completed_Quiz_Answers.pdf | Visually reviewed two-page quiz answer sheet |
 | Completed_Quiz_Answers.docx | Editable quiz answer sheet |
 | Submission.zip | Clean source, data, evidence, references, tests and documents |
@@ -16,18 +16,18 @@ Prepared: 13 November 2026 | Re-verified from a fresh clone: 19 November 2026
 | Submission.sha256 | Checksum of the completed ZIP; kept alongside the ZIP |
 
 Both quizzes are also included in the main lab record. Marks and instructor
-signature/date are left for the instructor. Course title and course code are
-blank because official values were not supplied.
+signature/date are left for the instructor. The cover gives the course as
+Skill Lab-II (CISL-2).
 
-## Before uploading
+## Submission (21 November 2026)
 
-1. Fill the official course title/code. The cover fields are blank so they can be
-   written by hand. For regenerated copies, edit student.json, run
-   build_documents.py and render_documents.py, and review the page images.
-2. Rerun make_submission.py after any edits so the ZIP and manifest include them,
-   then commit and push.
-3. Submit the repository link at the LMS assignment and save the receipt. The
-   assignment specifies a GitHub repository link; the ZIP is a supporting archive.
+1. Google Form "CISL-2 Skill Lab 2025 Batch": USN, name, section and the public
+   repository link submitted; Google confirmed the response was recorded.
+2. Lab book: Completed_Lab_Record.pdf and Completed_Quiz_Answers.pdf emailed to
+   the instructor (deadline 23 November 2026).
+3. For any regenerated copy, edit student.json, run build_documents.py,
+   render_documents.py and make_submission.py, review the page images, then
+   commit and push.
 
 The repository is public and the final revision is pushed, so no separate
 instructor access is needed. screenshots/prediction_terminal.png is a native

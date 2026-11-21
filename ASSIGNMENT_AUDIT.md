@@ -4,9 +4,10 @@ Review date: 13 November 2026; fresh-clone re-verification 19 November 2026.
 Student: HARSHA BS, 1MS25CI051, Section A.
 
 The implementation, measured evidence and final documents pass the review, and
-the final revision is published to the public GitHub repository. Course details
-and the LMS upload of the repository link remain student actions; no LMS
-submission or instructor marks are claimed.
+the final revision is published to the public GitHub repository. The cover gives
+the course as Skill Lab-II (CISL-2). On 21 November 2026 the repository link was
+submitted through the class Google Form and the lab book was emailed to the
+instructor; no instructor marks are claimed.
 
 ## Scope
 
@@ -110,10 +111,10 @@ not changed. The required AI-use declaration is retained.
 
 ## Remaining submission steps
 
-1. Fill the official course title and course code on the cover.
-2. Submit the public repository link at the correct LMS assignment and keep the
-   receipt.
-3. Review the implementation and quiz explanations for the viva.
+1. Review the implementation and quiz explanations for the viva.
+
+Done on 21 November 2026: course details on the cover, Google Form submission of
+the repository link, and the lab book email to the instructor.
 
 The original starter scripts were not supplied. The general regression baseline
 is a disclosed synthetic replacement; the delivery and hospital tables reproduce

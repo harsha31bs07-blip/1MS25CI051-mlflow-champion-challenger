@@ -2,16 +2,17 @@
   "student": "HARSHA BS",
   "usn": "1MS25CI051",
   "section": "A",
-  "course_details": "Blank fields on the document cover; official title/code not supplied",
+  "course_details": "Skill Lab-II (CISL-2), printed on the document cover",
   "github_url": "https://github.com/harsha31bs07-blip/1MS25CI051-mlflow-champion-challenger",
   "github_visibility": "public",
   "github_status": "Final revision pushed to the public repository on 2026-11-19",
-  "lms_status": "Student to submit the repository link on the LMS and keep the receipt",
+  "lms_status": "Google Form (CISL-2 Skill Lab 2025 Batch) submitted on 2026-11-21 with USN, name, section and the public repository link",
   "instructor_access": "Not needed; repository is public",
   "quizzes": "Both supplied quizzes completed with explanations; no instructor score claimed",
   "native_terminal_screenshot": "Captured 2026-11-19 from a native Windows console during a fresh-clone re-execution; output identical to outputs/prediction_terminal.txt",
-  "final_local_review_date": "2026-11-19",
+  "final_local_review_date": "2026-11-21",
   "local_package": "Prepared locally; see Submission.zip and SUBMISSION_GUIDE.md",
   "documents": "23-page lab record and 2-page quiz sheet; DOCX plus visually reviewed PDF copies",
-  "validation": "Fresh clone on 2026-11-19 reproduced all classification metrics, predictions, aliases and the inference transcript exactly; 18 tests, verify_submission.py and all 14 lab audits passed"
+  "validation": "Fresh clone on 2026-11-19 reproduced all classification metrics, predictions, aliases and the inference transcript exactly; 18 tests, verify_submission.py and all 14 lab audits passed",
+  "lab_book_status": "Lab record and quiz answer PDFs emailed to the course instructor on 2026-11-21 (deadline 2026-11-23)"
 }
